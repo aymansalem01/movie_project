@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Registration and Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
+            color: white;
+        }
+
+
+
+        .registration-section {
+            width: 33%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+            height: 100vh;
+        }
+
+
+
+        .registration-section h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+
+
+        .registration-section input {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+
+
+        .registration-section input[type="text"],
+        .registration-section input[type="email"],
+        .registration-section input[type="password"] {
+            background: #fff;
+            color: #000;
+        }
+
+
+
+        .registration-section button {
+            background:linear-gradient(to right,#9E2729,#581618) ;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+
+
+        .registration-section button:hover {
+            background:linear-gradient(to right,#ae3335,#661b1d) ;
+        }
+
+
+
+        .registration-section p {
+            margin-top: 15px;
+            color: #fff;
+            text-align: center;
+        }
+
+
+
+        .registration-section p a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+
+        .registration-section p a:hover {
+            text-decoration: underline;
+        }
+
+
+
+        .gallery-section {
+            width: 67%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .container {
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            height: auto;
+        }
+
+        .container img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="registration-section">
+        <h1>Registration</h1>
+        <form>
+            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="User Name" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+            <button type="submit" >Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="Log In.html">Log In</a></p>
+    </div>
+
+    <div class="gallery-section">
+        <div class="container">
+            <div class="box1"><img src="hunter.jpg" ></div>
+            <div class="box2"><img src="hunter.jpg" ></div>
+            <div class="box3"><img src="hunter.jpg" ></div>
+            <div class="box4"><img src="hunter.jpg" ></div>
+            <div class="box5"><img src="hunter.jpg" ></div>
+            <div class="box6"><img src="hunter.jpg" ></div>
+            <div class="box7"><img src="hunter.jpg" ></div>
+            <div class="box8"><img src="hunter.jpg" ></div>
+            <div class="box8"><img src="hunter.jpg" ></div>
+        </div>
+    </div>
+
+</body>
+</html>
