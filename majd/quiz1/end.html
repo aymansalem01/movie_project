@@ -55,24 +55,19 @@ li{
         </div>
         <div class="message" id="message">
         </div>
-       
         <button class="restart-btn" onclick="reviewQuiz()">Review Answers</button><button class="restart-btn" onclick="Restart()"> Restart</button><br><br><br>
         
         <div class="happy" id="img">
-            <img src="happy.jpg" alt="" style="height: 22rem; margin-bottom: 1.6rem;" >
-            
-
+            <img src="happy.jpg" style="height: 22rem; margin-bottom: 1.6rem;" >
         </div>
         <div class="sad">
-            <img src="sad.jpg" alt="" style="height: 22rem; margin-bottom: 1.6rem;">
+            <img src="sad.jpg"  style="height: 22rem; margin-bottom: 1.6rem;">
         </div>
         <div id="reviewquestions" style="display: none; " >
             <ol id="orderlist"></ol>
             <button class="restart-btn" onclick="main()">Return to the main page</button>      
-         </div>
-         
-
-         <script>
+        </div>
+        <script>
             window.onload = function () {
                 const answers = JSON.parse(sessionStorage.getItem('answers')) || [];
                 

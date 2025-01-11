@@ -9,19 +9,18 @@
         .container{
             display: flex;
             flex-direction: column;
-            gap: 3.8rem;        }
-        
+            gap: 3.8rem;
+            text-align: center;
+        }
+        .dropdown{justify-items: center;}
         body{
+            min-height: 100vh;
             margin: 0; 
-            
             background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
         }
         .options{
-            margin-left: 20rem;
-            width: 35rem;
-
-
-display: flex;
+            max-width: 35rem;
+            display: flex;
             gap: 3rem;           
         }
         li.selected{
@@ -29,10 +28,6 @@ display: flex;
         }
         .dropdown .options{
             display: block;
-        }
-        .Question{
-            margin-left: 10rem;
-            
         }
         a{text-decoration: none;
         color: black;}
@@ -42,7 +37,6 @@ display: flex;
             height: 2.5rem;
         }
         .page{
-            
             background-color: #010101;
             color: white;
             box-sizing: border-box ;
@@ -51,14 +45,11 @@ display: flex;
             text-align: center;
             align-content: center;
             border-radius: 10%;
-            margin-left: 40rem;
         }
         .directions{
             display: flex;
             flex-direction: row;
             gap: 44rem;
-            margin-left: 20rem;
-            
         }
         button{
             background:linear-gradient(to right,#9E2729,#581618) ;
@@ -66,58 +57,18 @@ display: flex;
             height: 3rem;
             color: white;
             border: none;
-           margin-bottom: 1rem;
-           cursor: pointer;
-
+            margin-bottom: 1rem;
+            cursor: pointer;
         }
         .option:hover {
             background-color: #290608;
         }
-        @media (max-width: 480px) {
-            .Question {
-        text-align: center;
-        margin: 2rem 0;
-        width: 70%; 
-    }
-            h1 {
-                font-size: 1.5rem;
-                width: 50%;
-            }
-            .option {
-                font-size: 1rem;
-                height: 2rem;
-                line-height: 2rem;
-                
-            }
-            .directions{
-                display: flex;
-                flex-direction: row;
-                gap: 3rem;
-            }
-            button {
-                font-size: 0.9rem;
-                width: 5rem;
-                height: 1.8rem;
-            }
-            .page {
-                width: 5rem;
-                height: 2.5rem;
-                margin-left: 23rem;
-                /* width: 100%; */
-            }
-            .options{
-                width: 60%;
-                
-            }
-        }
-       
     </style>
 </head>
 <body>
     <!-- a dive that have everything in  -->
     <div class="container">
-        <h1 style="margin-left: 21rem;">The Lord of the Rings: The Fellowship of the Ring Quiz</h1>
-     
+        <h1>The Lord of the Rings: The Fellowship of the Ring Quiz</h1>
         <div class="Question">
             <div class="dropdown">
                 <div class="options" id="select"> <label style="font-size: 1.5rem;">2.What year was The Fellowship of the Ring film released?</label><br><br>
@@ -125,23 +76,18 @@ display: flex;
                     <div class="option" ><a href="javascript:void(0);" onclick="question(event, '1998', false)"> <li id="wrong">1998</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0);" onclick="question(event, '2004', false)"><li id="wrong">2004</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0);" onclick="question(event, '2000',false)"><li id="wrong">2000</li></a></div><br><br>
-
                 </div>
+                <div class="page">
+                    <h3 >2 of 5</h3>
+                    </div>
+                    <div class="directions">
+                        <button id="end" onclick="next()" >Next</button>
+                        </div>
             </div>
         </div>
-       
-    <!-- a dive that contain the page number -->
-    <div class="page">
-<h3 >2 of 5</h3>
     </div>
-    <div class="directions">
-        <button id="end" onclick="next()" style="margin-left: 20rem;">Next</button>
-
-    </div>
-    </div>
-    
     <script>
-       
+
         if (!localStorage.getItem('quizAnswers')) {
      localStorage.setItem('quizAnswers', JSON.stringify([]));
  }
