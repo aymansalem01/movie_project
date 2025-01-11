@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C, #481A1C, #3A1817, #341817, #241415, #241415, #010101, #010101);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .result-container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .score {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .message {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        .restart-btn {
+            background: linear-gradient(to right, #9E2729, #581618);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .restart-btn:hover {
+            background-color: #290608;
+        }
+        .happy, .sad {
+    display: none;
+}
+.reviewquestions{
+    display: none;
+}
+li{
+    border: black solid ;
+    margin: 10px;
+    text-align: start;
+}
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Quiz Results</h1>
+        <div class="score" id="score-display">
+        </div>
+        <div class="message" id="message">
+        </div>
+       
+        <button class="restart-btn" onclick="reviewQuiz()">Review Answers</button><button class="restart-btn" onclick="Restart()"> Restart</button><br><br><br>
+        
+        <div class="happy" id="img">
+            <img src="happy.jpg" alt="" style="height: 22rem; margin-bottom: 1.6rem;" >
+            
+
+        </div>
+        <div class="sad">
+            <img src="sad.jpg" alt="" style="height: 22rem; margin-bottom: 1.6rem;">
+        </div>
+        <div id="reviewquestions" style="display: none; " >
+            <ol id="orderlist"></ol>
+            <button class="restart-btn" onclick="main()">Return to the main page</button>      
+         </div>
+         
+
+         <script>
+            window.onload = function () {
+                const answers = JSON.parse(sessionStorage.getItem('answers')) || [];
+                
+                const score = answers.filter(answer => answer.isCorrect).length;
+                sessionStorage.setItem('score', score);
+                
+                const totalQuestions = 5;
+                const happy = document.querySelector(".happy");
+                const sad = document.querySelector(".sad");
+        
+                const scoreDisplay = document.getElementById('score-display');
+                scoreDisplay.innerText = `Your Score: ${score} / ${totalQuestions}`;
+        
+                const message = document.getElementById('message');
+                if (score >= 4) {
+                    message.innerText = "What A Nerd!";
+                    happy.style.display = 'block';
+                    sad.style.display = 'none';
+                } else {
+                    message.innerText = "Good Luck Next Time";
+                    happy.style.display = 'none';
+                    sad.style.display = 'block';
+                }
+            };
+        
+            function reviewQuiz() {
+    const reviewContainer = document.getElementById("reviewquestions");
+    const questionList = document.getElementById("orderlist");
+    questionList.innerHTML = "";
+
+    const answers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
+
+    if (answers.length === 0) {
+        alert("No answers found in localStorage!");
+        return;
+    }
+
+  
+    answers.forEach((answerObj, index) => {
+        const listItem = document.createElement("li");
+        const par = document.createElement("p")
+        par.textContent = answerObj.question 
+        console.log(par)
+        const para = document.createElement("p")
+        para.textContent = answerObj.answer
+        console.log(para)
+        listItem.appendChild(par)
+        listItem.appendChild(para)
+        questionList.appendChild(listItem);
+        
+        // console.log(answerObj.question)
+        // const listItem = document.createElement("li");
+        // listItem.textContent = `
+        //     <strong>Q${index + 1}: ${answerObj.question}</strong><br>
+        //     Your Answer: <span style="color: ${answerObj.isCorrect ? 'green' : 'red'}">${answerObj.answer}</span><br>
+        //     Correct Answer: <span style="color: green">${answerObj.correctAnswer}</span>
+        // `;
+        // questionList.appendChild(listItem);
+        
+    });
+
+    reviewContainer.style.display = "block";
+    const happy = document.querySelector(".happy");
+    const sad = document.querySelector(".sad");
+    happy.style.display = 'none';
+    sad.style.display = 'none';
+}
+
+
+            function main() {
+                window.location.href = ""; 
+                sessionStorage.clear();
+            }
+        
+            function Restart() {
+                window.location.href = "quizone-1.html";
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+        </script>
+        
+    
+</body>
+</html>
