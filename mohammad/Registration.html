@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Registration and Gallery</title>
+<title>Registration and Gallery</title>
     <style>
         body {
             margin: 0;
@@ -14,7 +14,6 @@
             background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
             color: white;
         }
-
         .registration-section {
             width: 33%;
             padding: 20px;
@@ -26,20 +25,17 @@
             background: rgba(0, 0, 0, 0.7);
             height: 100vh;
         }
-
         .registration-section h1 {
             font-size: 2rem;
             margin-bottom: 20px;
             text-align: center;
             color: #fff;
         }
-
         .registration-section form {
             display: flex;
             flex-direction: column;
             align-items: center; 
         }
-
         .registration-section input {
             width: 100%;
             padding: 10px;
@@ -48,14 +44,12 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-
         .registration-section input[type="text"],
         .registration-section input[type="email"],
         .registration-section input[type="password"] {
             background: #fff;
             color: #000;
         }
-
         .registration-section button {
             background:linear-gradient(to right,#9E2729,#581618) ;
             color: #fff;
@@ -67,27 +61,22 @@
             font-size: 1rem;
             margin-top: 10px;
         }
-
         .registration-section button:hover {
             background:linear-gradient(to right,#ae3335,#661b1d) ;
         }
-
         .registration-section p {
             margin-top: 15px;
             color: #fff;
             text-align: center;
         }
-
         .registration-section p a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
         }
-
         .registration-section p a:hover {
             text-decoration: underline;
         }
-
         .gallery-section {
             width: 67%;
             padding: 20px;
@@ -96,7 +85,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .container {
             display: grid;
             grid-template-rows: repeat(3, 1fr);
@@ -105,7 +93,6 @@
             width: 100%;
             height: auto;
         }
-
         .container img {
             width: 100%;
             height: 150px;
@@ -115,25 +102,23 @@
     </style>
 </head>
 <body>
-
     <div class="registration-section">
         <h1>Registration</h1>
         <form>
-           <input type="email" id="RegEmail" placeholder="Email" required>
-           <p id="emailErr"></p>
-           <input type="text" id="RegName" placeholder="Full Name" required>
-           <p id="usererr"></p>
-           <input type="password" id="RegPassword" placeholder="Password" required>
-           <p id="passErr"></p>
-           <input type="password" id="RegConfirmPassword" placeholder="Confirm Password" required>
-           <p id="confirmErr"></p>
-           <input type="checkbox" id="check" required>
-           <label>I agree to the terms & conditions</label>
-           <button type="submit" onclick="signup()">Sign Up</button>
+            <input type="email" id="RegEmail" placeholder="Email" required>
+            <p id="emailErr"></p>
+            <input type="text" id="RegName" placeholder="Full Name" required>
+            <p id="usererr"></p>
+            <input type="password" id="RegPassword" placeholder="Password" required>
+            <p id="passErr"></p>
+            <input type="password" id="RegConfirmPassword" placeholder="Confirm Password" required>
+            <p id="confirmErr"></p>
+            <input type="checkbox" id="check" required>
+            <label>I agree to the terms & conditions</label>
+            <button type="submit" onclick="signup()">Sign Up</button>
         </form>
         <p>Already have an account? <a href="Log In.html">Log In</a></p>
     </div>
-
     <div class="gallery-section">
         <div class="container">
             <div class="box1"><img src="hunter.jpg" ></div>
@@ -147,30 +132,16 @@
             <div class="box9"><img src="hunter.jpg" ></div>
         </div>
     </div>
-
-
-    <script>
-        
-        function signup(){
-
-        
+<script>
+    function signup(){
     const email = document.getElementById('RegEmail');
     const username = document.getElementById('RegName');
     const pass = document.getElementById('RegPassword');
     const confir = document.getElementById('RegConfirmPassword');
-    const policyCheckbox = document.getElementById('RegPolicy');
-    
     const emailerr = document.getElementById('emailErr');
     const usererr = document.getElementById('usererr');
     const passerr = document.getElementById('passErr');
     const confirerr = document.getElementById('confirmErr');
-
-    
-
-
-
-
-    
     let valid = true;
     emailtest=/\S+@\S+.\S+/;
     passwordtest=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,18}$/;
@@ -181,7 +152,6 @@
         emailerr.textContent = "حج حط ايميلك ولا تتخوث"
         valid = false;
     }
-
     if(passwordtest.test(pass.value)){
         passerr.textContent = "ايوه هيك"
     }
@@ -205,21 +175,15 @@
         valid = false;
     }
     if(valid){
-        var iduser = parseInt(localStorage.getItem("iduser"))  ;
-        let user = {email : email.value , password : pass.value , name : username.value , id : iduser};
-        iduser++;
+        let user = {email : email.value , password : pass.value , name : username.value};
         localStorage.setItem("iduser",iduser);
         let users = JSON.parse(localStorage.getItem("users")) || [];
         users.push(user);
         localStorage.setItem("users", JSON.stringify(users));
-        window.location.href = "login.html";
+        window.location.href = "Login.html";
         alert("hi");
     }
-
-
-        }
-
-    </script>
-
+    }
+</script>
 </body>
 </html>
