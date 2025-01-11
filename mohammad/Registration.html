@@ -152,7 +152,7 @@
         emailerr.textContent = "حج حط ايميلك ولا تتخوث"
         valid = false;
     }
-    if(passwordtest.test(pass.value)){
+    if(pass,value.length >= 6){
         passerr.textContent = "ايوه هيك"
     }
     else{
@@ -182,6 +182,7 @@
         localStorage.setItem("users", JSON.stringify(users));
         window.location.href = "Login.html";
         alert("hi");
+        
     }
     }
 </script>

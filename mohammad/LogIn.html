@@ -126,7 +126,10 @@
         const emailLerr = document.getElementById("emailLogerr");
         const passLerr = document.getElementById("passLogerr");
         let users = JSON.parse(localStorage.getItem("users")) || [];
-        emailtest=/\S+@\S+.\S+/;
+        let emailtest=/\S+@\S+.\S+/;
+        if (!localStorage.getItem("users")) {
+        localStorage.setItem("users", JSON.stringify([]));
+        }
         if(emailtest.test(emailL.value)) {
             for(i=0;i<users.length;i++){
                 console.log("1")
