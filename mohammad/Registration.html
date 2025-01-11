@@ -162,7 +162,7 @@
     
     const emailerr = document.getElementById('emailErr');
     const usererr = document.getElementById('usererr');
-    const paseerr = document.getElementById('passErr');
+    const passerr = document.getElementById('passErr');
     const confirerr = document.getElementById('confirmErr');
 
     
@@ -206,7 +206,7 @@
     }
     if(valid){
         var iduser = parseInt(localStorage.getItem("iduser"))  ;
-        let user = {email : email.value , phone : phoneNumber.value , password : pass.value , name : username.value , id : iduser};
+        let user = {email : email.value , password : pass.value , name : username.value , id : iduser};
         iduser++;
         localStorage.setItem("iduser",iduser);
         let users = JSON.parse(localStorage.getItem("users")) || [];
