@@ -117,7 +117,7 @@
             <label>I agree to the terms & conditions</label>
             <button type="submit" onclick="signup()">Sign Up</button>
         </form>
-        <p>Already have an account? <a href="Log In.html">Log In</a></p>
+        <p>Already have an account? <a href="LogIn.html">Log In</a></p>
     </div>
     <div class="gallery-section">
         <div class="container">
@@ -142,7 +142,7 @@
     const usererr = document.getElementById('usererr');
     const passerr = document.getElementById('passErr');
     const confirerr = document.getElementById('confirmErr');
-    let valid = true;
+    let isvalid = true;
     emailtest=/\S+@\S+.\S+/;
     passwordtest=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,18}$/;
     if(emailtest.test(email.value)) {
@@ -150,21 +150,21 @@
     }
     else{
         emailerr.textContent = "حج حط ايميلك ولا تتخوث"
-        valid = false;
+        isvalid = false;
     }
     if(pass.value.length >= 6){
         passerr.textContent = "ايوه هيك"
     }
     else{
         passerr.textContent = "حط كلمة سر زي العالم"
-        valid = false;
+        isvalid = false;
     }
     if(confir.value == pass.value){
         confirerr.textContent = "تمام يا غالي"
     }
     else{
         confirerr.textContent = "يعني صرت ناسيها من هسا؟؟"
-        valid = false;
+        isvalid = false;
     }
     
     if(username.value.length >= 3){
@@ -172,17 +172,17 @@
     }
     else{
         usererr.textContent = "!يعني اسمك اقل من 3 احرف ؟"
-        valid = false;
+        isvalid = false;
     }
-    if(valid){
+    if(isvalid){
+        console.log("1");
         let user = {email : email.value , password : pass.value , name : username.value};
-        localStorage.setItem("iduser",iduser);
         let users = JSON.parse(localStorage.getItem("users")) || [];
         users.push(user);
+        console.log(user);
         localStorage.setItem("users", JSON.stringify(users));
-        window.location.href = "Login.html";
-        alert("hi");
-        
+        window.location.href = "LogIn.html";
+        return ; 
     }
     }
 </script>
