@@ -175,7 +175,6 @@
         isvalid = false;
     }
     if(isvalid){
-        console.log("1");
         let user = {email : email.value , password : pass.value , name : username.value};
         let users = JSON.parse(localStorage.getItem("users")) || [];
         users.push(user);

@@ -49,8 +49,9 @@
             </ul>
             <div class="d-flex">
                 <button class="btn  mx-3 px-5" type="button" id="logbtn">Log in</button> 
+                <button class="btn  mx-3 px-5" type="button" id="logbtn" onclick="window.location = 'LogIn.html'">Log in</button> 
                 <!-------id for button-->
-                <button class="btn  px-5" type="button" id="Signbtn">Sign in</button>
+                <button class="btn  px-5" type="button" id="Signbtn" onclick="window.location = 'Registration.html'">Sign in</button>
                 <!-------id for button-->
                 <button class="btn  px-5" type="button" id="user"></button>
                 <!-----------user id for show user name when log in-->
@@ -65,27 +66,86 @@
         <h2>please whatch video and attemp quiz</h2>
     </div>
     <!----------------end welcome text------------>
-    <div style="justify-items: center; ">
+    <div style="justify-items: center; margin-top: 20px;  ">
         <div class="video">
             <h2>text for test</h2>
         </div>
         <p class="btn" style="margin: 10px;" id="quiz1">you'r mark but here</p>
-        <button class="btn" style="margin: 10px;"> attemp Quiz</button>
+        <button class="btn" style="margin: 10px;" onclick="attempQuiz1()"> attemp Quiz</button>
     </div>
+    <div style="justify-items: center;margin-top: 20px; ">
+        <div class="video">
+            <h2>text for test</h2>
+        </div>
+        <p class="btn" style="margin: 10px;" id="quiz2">you'r mark but here</p>
+        <button class="btn" style="margin: 10px;" onclick="attempQuiz2()"> attemp Quiz</button>
+    </div>
+    <div style="justify-items: center; margin-top: 20px;  ">
+        <div class="video">
+            <h2>text for test</h2>
+        </div>
+        <p class="btn" style="margin: 10px;" id="quiz3">you'r mark but here</p>
+        <button class="btn" style="margin: 10px;" onclick="attempQuiz3()"> attemp Quiz</button>
+    </div>
+    
 <script>
-    const userid = document.getElementById("user");
-    const Signbtn = document.getElementById("Signbtn");
-    const logbtn = document.getElementById("logbtn");
-    const username = sessionStorage.getItem("name") || "";
     window.onload = function(){
+        const userid = document.getElementById("user");
+        const Signbtn = document.getElementById("Signbtn");
+        const logbtn = document.getElementById("logbtn");
+        const username = sessionStorage.getItem("name") || "";
         const isLogin = sessionStorage.getItem("isLogin");
+        const quiz1 = document.getElementById("quiz1");
+        const quiz2 = document.getElementById("quiz2");
+        const quiz3 = document.getElementById("quiz3");
         if(isLogin && username!= ""){
             Signbtn.style.display = "none";
             logbtn.style.display = "none";
             userid.style.display = "block";
             userid.textContent =  "hi: " + username;
         }
+
     }
+    function attempQuiz1(){
+        const userid = document.getElementById("user");
+        const Signbtn = document.getElementById("Signbtn");
+        const logbtn = document.getElementById("logbtn");
+        const username = sessionStorage.getItem("name") || "";
+        const isLogin = sessionStorage.getItem("isLogin");
+            if(isLogin && username!= ""){
+                window.location = "/quiz1/quizone-1.html"
+            }
+            else{
+                alert("please create account or Login");
+            }
+        }
+        function attempQuiz2(){
+        const userid = document.getElementById("user");
+        const Signbtn = document.getElementById("Signbtn");
+        const logbtn = document.getElementById("logbtn");
+        const username = sessionStorage.getItem("name") || "";
+        const isLogin = sessionStorage.getItem("isLogin");
+            if(isLogin && username!= ""){
+                window.location = "/quiz2/quizone-1.html"
+            }
+            else{
+                alert("please create account or Login");
+            }
+        }
+        function attempQuiz3(){
+        const userid = document.getElementById("user");
+        const Signbtn = document.getElementById("Signbtn");
+        const logbtn = document.getElementById("logbtn");
+        const username = sessionStorage.getItem("name") || "";
+        const isLogin = sessionStorage.getItem("isLogin");
+            if(isLogin && username!= ""){
+                window.location = "/quiz3/quizone-1.html"
+            }
+            else{
+                alert("please create account or Login");
+            }
+        }
+
 </script>
 </body>
 </html>

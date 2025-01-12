@@ -121,8 +121,8 @@
         const Signbtn = document.getElementById("Signbtn");
         const logbtn = document.getElementById("logbtn");
         const username = sessionStorage.getItem("name") || "";
+        const isLogin = sessionStorage.getItem("isLogin");
         window.onload = function(){
-            const isLogin = sessionStorage.getItem("isLogin");
             if(isLogin && username!= ""){
                 Signbtn.style.display = "none";
                 logbtn.style.display = "none";
@@ -130,6 +130,7 @@
                 userid.textContent =  "hi: " + username;
             }
         }
+        
     </script>
 </body>
 </html>
