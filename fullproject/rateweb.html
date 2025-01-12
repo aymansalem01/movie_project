@@ -11,23 +11,17 @@
             width: 100px;
             height: 50px;
             padding: 5px;
-            /* top: 0px;
-            left: 0px; */
             cursor: pointer;
         }
         .bu{
             position: absolute;
-
-            
         }
         body{
             min-height: 100vh;
             margin: 0; 
             background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
             text-align: center;
-          
         }
-        
     </style>
 </head>
 <body>
@@ -35,7 +29,6 @@
     <button onclick="nell()" >Yes</button>
     <button id="button" class="bu">No</button><br>
     <button id="main" style="display: none;   align-content: center;">Back to main page</button>
-
     <h2 style="display: none;" id="h4">Cool it's mine too 😊 </h2>
     <!-- <button id="main" style="display: none;   align-content: center;">Back to main page</button> -->
     <script>
@@ -45,16 +38,12 @@
         const maxheight = window.innerHeight - buttonheight
         window.addEventListener('DOMContentLoaded', () =>{
             const button = document.getElementById('button')
-              button.addEventListener('click', () => alert('You clicked me!'))
-              button.addEventListener('mouseover', () =>{
+            button.addEventListener('click', () => alert('You clicked me!'))
+            button.addEventListener('mouseover', () =>{
                 button.style.left = Math.floor(Math.random() * (maxwidth + 1)) + 'px';
                 button.style.top = Math.floor(Math.random() * (maxheight + 1)) + 'px';
                 
-              })
-            //   button.addEventListener('mouseout', () => {
-            //      button.textContent = "No"
-            //   })
-
+            })
         })
         function nell(){
             const main = document.getElementById("main")
