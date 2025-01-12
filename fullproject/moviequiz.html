@@ -97,9 +97,9 @@
         const quiz1 = document.getElementById("quiz1");
         const quiz2 = document.getElementById("quiz2");
         const quiz3 = document.getElementById("quiz3");
-        const score1 = sessionStorage.getItem("score1");
-        const score2 = sessionStorage.getItem("score2");
-        const score3 = sessionStorage.getItem("score3");
+        const score1 = sessionStorage.getItem("score1") || "";
+        const score2 = sessionStorage.getItem("score2") || "" ;
+        const score3 = sessionStorage.getItem("score3") || "";
         if(isLogin && username!= ""){
             Signbtn.style.display = "none";
             logbtn.style.display = "none";

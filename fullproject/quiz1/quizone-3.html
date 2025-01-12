@@ -89,59 +89,35 @@
             </div>
         </div>
     <!-- a dive that contain the page number -->
-  
     </div>
     <script>
-         var timeleft = 10;
-var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
-    clearInterval(downloadTimer);
-    window.location.href = "quizone-4.html"
-  }
-  document.getElementById("progressBar").value = 10 - timeleft;
-  timeleft -= 1;
-}, 1000);
        
         if (!localStorage.getItem('quizAnswers')) {
-     localStorage.setItem('quizAnswers', JSON.stringify([]));
- }
- 
-     
- function question(event, answer, isCorrect) {
-     const options = document.querySelectorAll('.option li');
-     
-     
-     options.forEach(option => {
-         option.classList.remove('selected');
-     });
-     event.target.classList.add('selected');
-     
-    
-     let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
-     sessionAnswers.push({ question: "3. What gift does Galadriel give Frodo in Lothlórien?", answer, isCorrect });
-     sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
- 
-    
-     let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
-     localAnswers.push({ question: "What gift does Galadriel give Frodo in Lothlórien?", answer, isCorrect });
-     localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
- 
-     console.log("SessionStorage:", JSON.parse(sessionStorage.getItem('answers')));
-     console.log("LocalStorage:", JSON.parse(localStorage.getItem('quizAnswers')));
- }
- 
-         function next() {
-             const selectedOption = document.querySelector('.selected');
-             
-             if (!selectedOption) {
-                 alert("Please choose an answer before moving to the next question.");
-                 return false;
-             }
-             
-             window.location.href = "quizone-4.html"; 
-         }
-     </script>
-    
-    
+    localStorage.setItem('quizAnswers', JSON.stringify([]));
+    }
+    function question(event, answer, isCorrect) {
+    const options = document.querySelectorAll('.option li');
+    options.forEach(option => {
+        option.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+    let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
+    sessionAnswers.push({ question: "3. What gift does Galadriel give Frodo in Lothlórien?", answer, isCorrect });
+    sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
+    let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
+    localAnswers.push({ question: "What gift does Galadriel give Frodo in Lothlórien?", answer, isCorrect });
+    localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
+    console.log("SessionStorage:", JSON.parse(sessionStorage.getItem('answers')));
+    console.log("LocalStorage:", JSON.parse(localStorage.getItem('quizAnswers')));
+    }
+    function next() {
+        const selectedOption = document.querySelector('.selected');
+        if (!selectedOption) {
+            alert("Please choose an answer before moving to the next question.");
+            return false;
+        }
+        window.location.href = "quizone-4.html"; 
+        }
+</script>
 </body>
 </html>  

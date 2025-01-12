@@ -88,7 +88,14 @@
             </div>
         </div>
     </div>
-    <script>
+<script>
+    window.onload = function(){
+        const isLogin = sessionStorage.getItem("isLogin");
+        if ( isLogin != true){
+            alert("مش بقلك ماسكينك نصيحة لا تحاول");
+            window.location.href = "../Registration.html";
+        }
+    }
         if (!localStorage.getItem('quizAnswers')) {
         localStorage.setItem('quizAnswers', JSON.stringify([]));
     }

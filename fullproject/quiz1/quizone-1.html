@@ -110,6 +110,7 @@
             </div>
         </div>
     <script>
+<<<<<<< HEAD
         var timeleft = 10;
 var downloadTimer = setInterval(function(){
   if(timeleft <= 0){
@@ -120,6 +121,16 @@ var downloadTimer = setInterval(function(){
   timeleft -= 1;
 }, 1000);
 
+=======
+        window.onload = function(){
+            const isLogin = sessionStorage.getItem("isLogin");
+            if ( isLogin != true){
+                window.close();
+                alert("ترا ماسكينك روح اعمل اكاونت");
+                window.location.href = "../Registration.html";
+            }
+        }
+>>>>>>> 3deedb5970f480670f6f433b2bc2d4624a0e0950
         if (!localStorage.getItem('quizAnswers')) {
         localStorage.setItem('quizAnswers', JSON.stringify([]));
         }
