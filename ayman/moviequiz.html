@@ -24,6 +24,7 @@
         .video > h2{
             color: black;
         }
+        #user{display: none;}
     </style>
 </head>
 <body>
@@ -46,6 +47,14 @@
                     <button class="btn mx-5" onclick="window.location = 'reco.html'">Recommendations</button>
                     </li>
             </ul>
+            <div class="d-flex">
+                <button class="btn  mx-3 px-5" type="button" id="logbtn">Log in</button> 
+                <!-------id for button-->
+                <button class="btn  px-5" type="button" id="Signbtn">Sign in</button>
+                <!-------id for button-->
+                <button class="btn  px-5" type="button" id="user"></button>
+                <!-----------user id for show user name when log in-->
+            </div>
         </div>
         </div>
     </nav>
@@ -63,6 +72,20 @@
         <p class="btn" style="margin: 10px;" id="quiz1">you'r mark but here</p>
         <button class="btn" style="margin: 10px;"> attemp Quiz</button>
     </div>
-    
+<script>
+    const userid = document.getElementById("user");
+    const Signbtn = document.getElementById("Signbtn");
+    const logbtn = document.getElementById("logbtn");
+    const username = sessionStorage.getItem("name") || "";
+    window.onload = function(){
+        const isLogin = sessionStorage.getItem("isLogin");
+        if(isLogin && username!= ""){
+            Signbtn.style.display = "none";
+            logbtn.style.display = "none";
+            userid.style.display = "block";
+            userid.textContent =  "hi: " + username;
+        }
+    }
+</script>
 </body>
 </html>

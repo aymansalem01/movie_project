@@ -18,6 +18,7 @@
         #user{display: none;}
         @media only screen and (max-width: 900px){
             .cardpar{flex-wrap: wrap;gap: 10px; justify-content: center;}
+            
         }
     </style>
 </head>
@@ -60,30 +61,12 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
             <img src=""  class="d-block" style="width:100%">
-                <div class="carousel-caption">
-                    <!-- text or introdction
-                    text or introdction
-                    text or introdction
-                    text or introdction -->
-                </div>
             </div>
             <div class="carousel-item">
-            <img src="" alt="Chicago" class="d-block" style="width:100%">
-            <div class="carousel-caption">
-                    <!-- text or introdction
-                    text or introdction
-                    text or introdction
-                    text or introdction -->
-            </div> 
+            <img src=""  class="d-block" style="width:100%"> 
             </div>
             <div class="carousel-item">
-            <img src="" alt="New York" class="d-block" style="width:100%">
-            <div class="carousel-caption">
-                    <!-- text or introdction
-                    text or introdction
-                    text or introdction
-                    text or introdction -->
-            </div>  
+            <img src=""  class="d-block" style="width:100%">  
             </div>
         </div>
     </div>
@@ -138,5 +121,20 @@
 
     </div>
     <!------------------------------end footer------------->
+    <script>
+            const userid = document.getElementById("user");
+            const Signbtn = document.getElementById("Signbtn");
+            const logbtn = document.getElementById("logbtn");
+            const username = sessionStorage.getItem("name") || "";
+        window.onload = function(){
+            const isLogin = sessionStorage.getItem("isLogin");
+            if(isLogin && username!= ""){
+                Signbtn.style.display = "none";
+                logbtn.style.display = "none";
+                userid.style.display = "block";
+                userid.textContent =  "hi: " + username;
+            }
+        }
+    </script>
 </body>
 </html>

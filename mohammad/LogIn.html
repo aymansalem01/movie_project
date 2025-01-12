@@ -149,19 +149,14 @@
             const emailLerr = document.getElementById("emailErr"); 
             const passLerr = document.getElementById("passErr"); 
             let users = JSON.parse(localStorage.getItem("users")) || []; 
-    
             emailLerr.textContent = ""; 
             passLerr.textContent = "";
-    
-           
             const emailTest = /\S+@\S+\.\S+/;
             const passwordTest = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,18}$/;
-    
             if (!emailTest.test(emailL)) {
                 emailLerr.textContent = "اكتب الايميل مزبوط";
                 return;
             }
-    
             let userFound = false;
             for (let i = 0; i < users.length; i++) {
                 if (emailL === users[i].email) {
@@ -169,8 +164,7 @@
                     if (passL === users[i].password) {
                         sessionStorage.setItem("name", users[i].name);
                         sessionStorage.setItem("isLogin", true);
-    
-                        window.location.href = "profile.html";
+                        window.location.href = "/../ayman/index.html";
                         return;
                     } else {
                         passLerr.textContent =  "كلمة السر غلط يا حشم";
@@ -178,7 +172,6 @@
                     }
                 }
             }
-    
             if (!userFound) {
                 emailLerr.textContent =  "شكلو ما عندك ايميل اعمل ايميل وتعال";
             }
