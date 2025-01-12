@@ -121,7 +121,7 @@ var downloadTimer = setInterval(function(){
 }, 1000);
         window.onload = function(){
             const isLogin = sessionStorage.getItem("isLogin");
-            if ( isLogin != true){
+            if ( isLogin != "true"){
                 window.close();
                 alert("ترا ماسكينك روح اعمل اكاونت");
                 window.location.href = "../Registration.html";

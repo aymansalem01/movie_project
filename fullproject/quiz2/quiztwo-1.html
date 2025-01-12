@@ -90,7 +90,7 @@
     <script>
         window.onload = function(){
             const isLogin = sessionStorage.getItem("isLogin");
-            if ( isLogin != true){
+            if ( isLogin != "true"){
                 alert("ترا ماسكينك روح اعمل اكاونت");
                 window.location.href = "../Registration.html";
             }
