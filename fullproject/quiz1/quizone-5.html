@@ -90,6 +90,13 @@
     <!-- a dive that contain the page number -->
     </div>
     <script>
+        window.onload = function(){
+        const isLogin = sessionStorage.getItem("isLogin");
+        if ( isLogin != true){
+            alert("ترا وضعك ميؤوس منو ع الاخر سلام");
+            window.location.href = "../Registration.html";
+        }
+    }
         if (!localStorage.getItem('quizAnswers')) {
             localStorage.setItem('quizAnswers', JSON.stringify([]));
         }
