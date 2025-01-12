@@ -97,13 +97,24 @@
         const quiz1 = document.getElementById("quiz1");
         const quiz2 = document.getElementById("quiz2");
         const quiz3 = document.getElementById("quiz3");
+        const score1 = sessionStorage.getItem("score1");
+        const score2 = sessionStorage.getItem("score2");
+        const score3 = sessionStorage.getItem("score3");
         if(isLogin && username!= ""){
             Signbtn.style.display = "none";
             logbtn.style.display = "none";
             userid.style.display = "block";
             userid.textContent =  "hi: " + username;
         }
-
+        if(score1 != ""){
+            quiz1.textContent = score1;
+        }
+        if(score2 != ""){
+            quiz2.textContent = score2;
+        }
+        if(score3 != ""){
+            quiz3.textContent = score3;
+        }
     }
     function attempQuiz1(){
         const userid = document.getElementById("user");
