@@ -94,7 +94,7 @@ li{
             };
         
             function reviewQuiz() {
-    const reviewContainer = document.getElementById("reviewquestions");
+    var reviewContainer = document.getElementById("reviewquestions");
     const questionList = document.getElementById("orderlist");
     questionList.innerHTML = "";
 
@@ -105,29 +105,30 @@ li{
         return;
     }
 
-  
-    answers.forEach((answerObj, index) => {
+
+    answers.forEach((answerObj, index, isCorrect) => {
         const listItem = document.createElement("li");
         const par = document.createElement("p")
-        par.textContent = answerObj.question 
-        console.log(par)
+        par.textContent = answerObj.question
         const para = document.createElement("p")
+        // const rightt = document.createElement("p")
         para.textContent = answerObj.answer
-        console.log(para)
-        listItem.appendChild(par)
-        listItem.appendChild(para)
-        questionList.appendChild(listItem);
-        
-        // console.log(answerObj.question)
-        // const listItem = document.createElement("li");
-        // listItem.textContent = `
-        //     <strong>Q${index + 1}: ${answerObj.question}</strong><br>
-        //     Your Answer: <span style="color: ${answerObj.isCorrect ? 'green' : 'red'}">${answerObj.answer}</span><br>
-        //     Correct Answer: <span style="color: green">${answerObj.correctAnswer}</span>
-        // `;
-        // questionList.appendChild(listItem);
-        
-    });
+        // rightt.textContent = answerObj.
+        // right.textContent = answerObj.answer.isCorrect
+        // listItem.appendChild(rightt)
+            listItem.appendChild(par);
+            listItem.appendChild(para);
+            if(answerObj.isCorrect ==true){
+                listItem.style.border = "solid green";
+                questionList.appendChild(listItem);
+        }
+        else{
+            listItem.style.border = "solid red"
+            questionList.appendChild(listItem);
+        }
+            } );
+            
+            
 
     reviewContainer.style.display = "block";
     const happy = document.querySelector(".happy");
