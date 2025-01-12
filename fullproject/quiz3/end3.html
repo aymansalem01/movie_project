@@ -9,6 +9,7 @@
             background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C, #481A1C, #3A1817, #341817, #241415, #241415, #010101, #010101);
             color: white;
             font-family: Arial, sans-serif;
+            min-height: 100vh;
         }
         .result-container {
             text-align: center;
@@ -84,7 +85,7 @@ li{
                 const sad = document.querySelector(".sad");
         
                 const scoreDisplay = document.getElementById('score-display');
-                scoreDisplay.innerText = `Your Score: ${score} / ${totalQuestions}`;
+                scoreDisplay.innerText = `Your Score: ${score3} / ${totalQuestions}`;
         
                 const message = document.getElementById('message');
                 if (score3 >= 4) {
@@ -144,14 +145,14 @@ li{
 
 
             function main() {
-                window.location.href = ""; 
-                sessionStorage.clear();
+                window.location.href = "../moviequiz.html"; 
+                // sessionStorage.clear();
             }
         
             function Restart() {
                 window.location.href = "quizthree-1.html";
-                sessionStorage.clear();
-                localStorage.clear();
+                // sessionStorage.clear();
+                localStorage.setItem ("quizAnswers", [])
             }
         </script>
         

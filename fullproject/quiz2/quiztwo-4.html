@@ -10,6 +10,8 @@
             flex-direction: column;
             gap: 3.8rem;
             text-align: center;
+            align-items: center;
+
         }
         .dropdown{justify-items: center;}
         body{
@@ -68,6 +70,7 @@
     <!-- a dive that have everything in  -->
     <div class="container">
         <h1>The Lord of the Rings: The Return of the King Quiz</h1>
+        <progress value="0" max="10" id="progressBar"></progress>
         <div class="Question">
             <div class="dropdown">
                 <div class="options" id="select"> <label style="font-size: 1.5rem;">4.How does Saruman die?
@@ -89,6 +92,15 @@
         </div>
         </div>
     <script>
+         var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    window.location.href = "quizone-2.html"
+  }
+  document.getElementById("progressBar").value = 10 - timeleft;
+  timeleft -= 1;
+}, 1000);
         window.onload = function(){
             const isLogin = sessionStorage.getItem("isLogin");
             if ( isLogin != "true"){

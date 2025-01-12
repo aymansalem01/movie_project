@@ -123,6 +123,7 @@
         const username = sessionStorage.getItem("name") || "";
         const isLogin = sessionStorage.getItem("isLogin");
             if(isLogin && username!= ""){
+                localStorage.setItem ("quizAnswers", [])
                 window.open("quiz1/quizone-1.html")
             }
             else{
@@ -136,6 +137,8 @@
         const username = sessionStorage.getItem("name") || "";
         const isLogin = sessionStorage.getItem("isLogin");
             if(isLogin && username!= ""){
+                localStorage.setItem ("quizAnswers", [])
+
                 window.open("quiz2/quiztwo-1.html");
             }
             else{
@@ -149,7 +152,8 @@
         const username = sessionStorage.getItem("name") || "";
         const isLogin = sessionStorage.getItem("isLogin");
             if(isLogin && username!= ""){
-                window.open("quiz3/quiztree-1.html")
+                localStorage.setItem ("quizAnswers", [])
+                window.open("quiz3/quizthree-1.html")
             }
             else{
                 alert("please create account or Login");

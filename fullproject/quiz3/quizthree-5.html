@@ -10,6 +10,8 @@
             flex-direction: column;
             gap: 3.8rem;
             text-align: center;
+            align-items: center;
+
         }
         .dropdown{justify-items: center;}
         body{
@@ -68,6 +70,8 @@
     <!-- a dive that have everything in  -->
     <div class="container">
         <h1>The Lord of the Rings: The Two Towers Quiz</h1>
+        <progress value="0" max="10" id="progressBar"></progress>
+
         <div class="Question">
             <div class="dropdown">
                 <div class="options" id="select"> <label style="font-size: 1.5rem;">4.How long have the Three Hunters been pursuing the Uruk-Hai who have taken Merry and Pippin hostage?</label><br><br>
@@ -85,40 +89,49 @@
             </div>
         </div>
     </div>
-<script>
-    window.onload = function(){
-        const isLogin = sessionStorage.getItem("isLogin");
-        if ( isLogin != "true"){
-            alert("ترا وضعك ميؤوس منو ع الاخر سلام");
-            window.location.href = "../Registration.html";
-        }
-    }
-        if (!localStorage.getItem('quizAnswers')) {
-        localStorage.setItem('quizAnswers', JSON.stringify([]));
-        }
-    function question(event, answer, isCorrect) {
-        const options = document.querySelectorAll('.option li');
-        options.forEach(option => {
-            option.classList.remove('selected');
-        });
-        event.target.classList.add('selected');
-        let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
-        sessionAnswers.push({ question: "How long have the Three Hunters been pursuing the Uruk-Hai who have taken Merry and Pippin hostage?", answer, isCorrect });
-        sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
-        let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
-        localAnswers.push({ question: "How long have the Three Hunters been pursuing the Uruk-Hai who have taken Merry and Pippin hostage?", answer, isCorrect });
-        localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
-        console.log("SessionStorage:", JSON.parse(sessionStorage.getItem('answers')));
-        console.log("LocalStorage:", JSON.parse(localStorage.getItem('quizAnswers')));
-    }
-    function finish() {
-        const selectedOption = document.querySelector('.selected');
-        if (!selectedOption) {
-            alert("Please choose an answer before moving to the next question.");
-            return false;
-        }
-            window.location.href = "end3.html"; 
-        }
-    </script>
+    <script>
+        var timeleft = 10;
+var downloadTimer = setInterval(function(){
+ if(timeleft <= 0){
+   clearInterval(downloadTimer);
+   window.location.href = "quizone-2.html"
+ }
+ document.getElementById("progressBar").value = 10 - timeleft;
+ timeleft -= 1;
+}, 1000);
+       window.onload = function(){
+       const isLogin = sessionStorage.getItem("isLogin");
+       if ( isLogin != "true"){
+           alert("مش بقلك ماسكينك نصيحة لا تحاول");
+           window.location.href = "../Registration.html";
+       }
+   }
+   if (!localStorage.getItem('quizAnswers')) {
+       localStorage.setItem('quizAnswers', JSON.stringify([]));
+   }
+       function question(event, answer, isCorrect) {
+   const options = document.querySelectorAll('.option li');
+   options.forEach(option => {
+       option.classList.remove('selected');
+   });
+   event.target.classList.add('selected');
+   let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
+   sessionAnswers.push({ question: "Which two characters are the primary focus of the second half of The Two Towers?", answer, isCorrect });
+   sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
+   let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
+   localAnswers.push({ question: "Which two characters are the primary focus of the second half of The Two Towers?", answer, isCorrect });
+   localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
+   console.log("SessionStorage:", JSON.parse(sessionStorage.getItem('answers')));
+   console.log("LocalStorage:", JSON.parse(localStorage.getItem('quizAnswers')));
+   }
+   function next() {
+       const selectedOption = document.querySelector('.selected');
+       if (!selectedOption) {
+           alert("Please choose an answer before moving to the next question.");
+           return false;
+       }
+       window.location.href = "end3.html"; 
+   }
+   </script>
 </body>
 </html>  

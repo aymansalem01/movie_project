@@ -70,7 +70,7 @@ li{
             <ol id="orderlist"></ol>
             <button class="restart-btn" onclick="main()">Return to the main page</button>      
          </div>
-         
+       </div>
 
          <script>
             window.onload = function () {
@@ -87,7 +87,7 @@ li{
                 scoreDisplay.innerText = `Your Score: ${score2} / ${totalQuestions}`;
         
                 const message = document.getElementById('message');
-                if (score >= 4) {
+                if (score2 >= 4) {
                     message.innerText = "What A Nerd!";
                     happy.style.display = 'block';
                     sad.style.display = 'none';
@@ -145,14 +145,15 @@ li{
 
 
             function main() {
-                window.location.href = ""; 
-                sessionStorage.clear();
+                window.location.href = "../moviequiz.html"; 
+                // sessionStorage.clear();
             }
         
             function Restart() {
                 window.location.href = "quiztwo-1.html";
-                sessionStorage.clear();
-                localStorage.clear();
+                // sessionStorage.clear();
+                
+                localStorage.setItem ("quizAnswers", [])
             }
         </script>
         

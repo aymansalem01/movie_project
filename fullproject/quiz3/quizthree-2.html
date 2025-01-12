@@ -10,6 +10,8 @@
             flex-direction: column;
             gap: 3.8rem;
             text-align: center;
+            align-items: center;
+
         }
         .dropdown{justify-items: center;}
         body{
@@ -68,6 +70,8 @@
     <!-- a dive that have everything in  -->
     <div class="container">
         <h1>The Lord of the Rings: The Two Towers Quiz</h1>
+        <progress value="0" max="10" id="progressBar"></progress>
+
         <div class="Question">
             <div class="dropdown">
                 <div class="options" id="select"> <label style="font-size: 1.5rem;">2.In what state does Sam find Frodo after Shelob’s attack?</label><br><br>
@@ -87,38 +91,54 @@
         </div>
     </div>
     <script>
-        window.onload = function(){
-            const isLogin = sessionStorage.getItem("isLogin");
-            if ( isLogin != "true"){
-                alert("ترا ماسكينك روح اعمل اكاونت");
-                window.location.href = "../Registration.html";
-            }
-        }
-        if (!localStorage.getItem('quizAnswers')) {
-    localStorage.setItem('quizAnswers', JSON.stringify([]));
-    }
-    function question(event, answer, isCorrect) {
-    const options = document.querySelectorAll('.option li');
-    options.forEach(option => {
-        option.classList.remove('selected');
-    });
-    let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
-    sessionAnswers.push({ question: "2.In what state does Sam find Frodo after Shelob’s attack?", answer, isCorrect });
-    sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
-    let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
-    localAnswers.push({ question: "In what state does Sam find Frodo after Shelob’s attack?", answer, isCorrect });
-    localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
-    console.log("SessionStorage:", JSON.parse(sessionStorage.getItem('answers')));
-    console.log("LocalStorage:", JSON.parse(localStorage.getItem('quizAnswers')));
-    }
-    function next() {
-        const selectedOption = document.querySelector('.selected');
-        if (!selectedOption) {
-            alert("Please choose an answer before moving to the next question.");
-            return false;
-        }
-        window.location.href = "quizthree-3.html"; 
-    }
-    </script>
+        var timeleft = 10;
+var downloadTimer = setInterval(function(){
+ if(timeleft <= 0){
+   clearInterval(downloadTimer);
+   window.location.href = "quizone-2.html"
+ }
+ document.getElementById("progressBar").value = 10 - timeleft;
+ timeleft -= 1;
+}, 1000);
+       window.onload = function(){
+           const isLogin = sessionStorage.getItem("isLogin");
+           if ( isLogin != "true"){
+               alert("ترا ماسكينك روح اعمل اكاونت");
+               window.location.href = "../Registration.html";
+           }
+       }
+   function question(event, answer = '', isCorrect = false) {
+   const options = document.querySelectorAll('.option li');
+   options.forEach(option => {
+       option.classList.remove('selected');
+   });
+   event.target.classList.add('selected');
+   const correctAnswer = 'Fish'; 
+   let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
+   sessionAnswers.push({
+       question: "For what food does Gollum frequently yearn?", 
+       answer, 
+       isCorrect,
+       correctAnswer
+   });
+   sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
+   let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
+   localAnswers.push({
+       question: "For what food does Gollum frequently yearn?", 
+       answer, 
+       isCorrect,
+       correctAnswer 
+   });
+   localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
+   }
+       function next() {
+           const selectedOption = document.querySelector('.selected');
+           if (!selectedOption) {
+               alert("Please choose an answer before moving to the next question.");
+               return false;
+           }
+           window.location.href = "quizthree-3.html"; 
+       }
+   </script>
 </body>
 </html>  

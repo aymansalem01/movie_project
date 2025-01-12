@@ -89,6 +89,15 @@
         </div>
     </div>
     <script>
+         var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    window.location.href = "quizone-2.html"
+  }
+  document.getElementById("progressBar").value = 10 - timeleft;
+  timeleft -= 1;
+}, 1000);
         window.onload = function(){
             const isLogin = sessionStorage.getItem("isLogin");
             if ( isLogin != "true"){

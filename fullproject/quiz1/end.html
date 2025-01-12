@@ -67,6 +67,7 @@ li{
             <ol id="orderlist"></ol>
             <button class="restart-btn" onclick="main()">Return to the main page</button>      
         </div>
+    </div>
         <script>
             window.onload = function () {
                 const answers = JSON.parse(sessionStorage.getItem('answers')) || [];
@@ -140,13 +141,13 @@ li{
 
             function main() {
                 window.location.href = ""; 
-                sessionStorage.clear();
+                // sessionStorage.clear();
             }
         
             function Restart() {
                 window.location.href = "quizone-1.html";
-                sessionStorage.clear();
-                localStorage.clear();
+                // sessionStorage.clear();
+                localStorage.setItem ("quizAnswers", [])
             }
         </script>
         
