@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1-1</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap: 3.8rem;
+            text-align: center;
+        }
+        .dropdown{justify-items: center;}
+        body{
+            min-height: 100vh;
+            margin: 0; 
+            background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
+        }
+        .options{
+            max-width: 35rem;
+            display: flex;
+            gap: 3rem;           
+        }
+        li.selected{
+            color: red;
+        }
+        .dropdown .options{
+            display: block;
+        }
+        a{text-decoration: none;
+        color: black;}
+        .option{
+            background-color: white;
+            font-size: 1.5rem;
+            height: 2.5rem;
+        }
+        .page{
+            background-color: #010101;
+            color: white;
+            box-sizing: border-box ;
+            width: 7rem;
+            height: 4rem;
+            text-align: center;
+            align-content: center;
+            border-radius: 10%;
+        }
+        .directions{
+            display: flex;
+            flex-direction: row;
+            gap: 44rem;
+        }
+        button{
+            background:linear-gradient(to right,#9E2729,#581618) ;
+            width: 9rem;
+            height: 3rem;
+            color: white;
+            border: none;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        .option:hover {
+            background-color: #290608;
+        }
+    </style>
+</head>
+<body>
+    <!-- a dive that have everything in  -->
+    <div class="container">
+        <h1 >The Lord of the Rings: The Fellowship of the Ring Quiz</h1>
+        <div class="Question">
+            <div class="dropdown">
+                <div class="options" id="select"> 
+                    <label style="font-size: 1.5rem;">1. What is the name of Frodo’s loyal gardener and best friend?</label><br><br>
+                    
+                    <div class="option" data-correct="false">
+                        <a href="javascript:void(0);" onclick="question(event, 'Pippin', false)">
+                            <li id="wrong">Pippin</li>
+                        </a>
+                    </div><br><br>
+                    
+                    <div class="option" data-correct="false">
+                        <a href="javascript:void(0);" onclick="question(event, 'Aragorn', false)">
+                            <li id="wrong">Aragorn</li>
+                        </a>
+                    </div><br><br>
+                    
+                    <div class="option" data-correct="true">
+                        <a href="javascript:void(0);" onclick="question(event, 'Sam', true)">
+                            <li id="right">Sam</li>
+                        </a>
+                    </div><br><br>
+                    
+                    <div class="option" data-correct="false">
+                        <a href="javascript:void(0);" onclick="question(event, 'Merry', false)">
+                            <li id="wrong">Merry</li>
+                        </a>
+                    </div><br><br>
+                </div>
+                <div class="page" style="margin: 10px;">
+                    <h3>1 of 5</h3>
+                </div>
+                <div class="directions" style="margin: 10px;">
+                    <button id="end" onclick="next()" >Next</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        if (!localStorage.getItem('quizAnswers')) {
+        localStorage.setItem('quizAnswers', JSON.stringify([]));
+        }
+    function question(event, answer, isCorrect) {
+    const options = document.querySelectorAll('.option li');
+    options.forEach(option => {
+        option.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+    let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
+    sessionAnswers.push({ question: "1. What is the name of Frodo’s loyal gardener and best friend?", answer, isCorrect });
+    sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
+    let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
+    localAnswers.push({ question: "What is the name of Frodo’s loyal gardener and best friend?", answer, isCorrect });
+    localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
+    console.log("SessionStorage:", JSON.parse(sessionStorage.getItem('answers')));
+    console.log("LocalStorage:", JSON.parse(localStorage.getItem('quizAnswers')));
+    }
+    function next() {
+        const selectedOption = document.querySelector('.selected');
+        if (!selectedOption) {
+            alert("Please choose an answer before moving to the next question.");
+            return false;
+            }
+            window.location.href = "quizone-2.html"; 
+        }
+    </script>
+
+</body>
+</html>  
