@@ -87,31 +87,38 @@
         </div>
     </div>
     <script>
-        if (!localStorage.getItem('quizAnswers')) {
-    localStorage.setItem('quizAnswers', JSON.stringify([]));
-    }
-    function question(event, answer, isCorrect) {
-    const options = document.querySelectorAll('.option li');
-    options.forEach(option => {
-        option.classList.remove('selected');
-    });
-    let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
-    sessionAnswers.push({ question: "2.In what state does Sam find Frodo after Shelob’s attack?", answer, isCorrect });
-    sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
-    let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
-    localAnswers.push({ question: "In what state does Sam find Frodo after Shelob’s attack?", answer, isCorrect });
-    localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
-    console.log("SessionStorage:", JSON.parse(sessionStorage.getItem('answers')));
-    console.log("LocalStorage:", JSON.parse(localStorage.getItem('quizAnswers')));
-    }
-    function next() {
-        const selectedOption = document.querySelector('.selected');
-        if (!selectedOption) {
-            alert("Please choose an answer before moving to the next question.");
-            return false;
+        function question(event, answer = '', isCorrect = false) {
+        const options = document.querySelectorAll('.option li');
+        options.forEach(option => {
+            option.classList.remove('selected');
+        });
+        event.target.classList.add('selected');
+        const correctAnswer = 'Fish'; 
+        let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
+        sessionAnswers.push({
+            question: "For what food does Gollum frequently yearn?", 
+            answer, 
+            isCorrect,
+            correctAnswer
+        });
+        sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
+        let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
+        localAnswers.push({
+            question: "For what food does Gollum frequently yearn?", 
+            answer, 
+            isCorrect,
+            correctAnswer 
+        });
+        localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
         }
-        window.location.href = "quizthree-3.html"; 
-    }
-    </script>
+            function next() {
+                const selectedOption = document.querySelector('.selected');
+                if (!selectedOption) {
+                    alert("Please choose an answer before moving to the next question.");
+                    return false;
+                }
+                window.location.href = "quizthree-3.html"; 
+            }
+        </script>
 </body>
 </html>  

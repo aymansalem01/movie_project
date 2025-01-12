@@ -14,7 +14,7 @@
             text-align: center;
             margin-top: 100px;
         }
-        .score {
+        .score1 {
             font-size: 2rem;
             font-weight: bold;
         }
@@ -51,7 +51,7 @@ li{
 <body>
     <div class="result-container">
         <h1>Quiz Results</h1>
-        <div class="score" id="score-display">
+        <div class="score1" id="score-display">
         </div>
         <div class="message" id="message">
         </div>
@@ -71,18 +71,18 @@ li{
             window.onload = function () {
                 const answers = JSON.parse(sessionStorage.getItem('answers')) || [];
                 
-                const score = answers.filter(answer => answer.isCorrect).length;
-                sessionStorage.setItem('score', score);
+                const score1 = answers.filter(answer => answer.isCorrect).length;
+                sessionStorage.setItem('score1', score1);
                 
                 const totalQuestions = 5;
                 const happy = document.querySelector(".happy");
                 const sad = document.querySelector(".sad");
         
                 const scoreDisplay = document.getElementById('score-display');
-                scoreDisplay.innerText = `Your Score: ${score} / ${totalQuestions}`;
+                scoreDisplay.innerText = `Your Score: ${score1} / ${totalQuestions}`;
         
                 const message = document.getElementById('message');
-                if (score >= 4) {
+                if (score1 >= 4) {
                     message.innerText = "What A Nerd!";
                     happy.style.display = 'block';
                     sad.style.display = 'none';
