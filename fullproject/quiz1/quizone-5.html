@@ -10,6 +10,7 @@
             flex-direction: column;
             gap: 3.8rem;
             text-align: center;
+            align-items: center;
         }
         .dropdown{justify-items: center;}
         body{
@@ -68,6 +69,7 @@
     <!-- a dive that have everything in  -->
     <div class="container">
         <h1>The Lord of the Rings: The Fellowship of the Ring Quiz</h1>
+        <progress value="0" max="10" id="progressBar"></progress>
         <div class="Question">
             <div class="dropdown">
                 <div class="options" id="select"> <label style="font-size: 1.5rem;">5.How are Bilbo and Frodo Baggins related?
@@ -88,6 +90,15 @@
     <!-- a dive that contain the page number -->
     </div>
     <script>
+         var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    window.location.href = "end.html"
+  }
+  document.getElementById("progressBar").value = 10 - timeleft;
+  timeleft -= 1;
+}, 1000);
         if (!localStorage.getItem('quizAnswers')) {
             localStorage.setItem('quizAnswers', JSON.stringify([]));
         }
