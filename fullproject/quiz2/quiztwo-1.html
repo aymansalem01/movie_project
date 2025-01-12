@@ -88,6 +88,13 @@
         </div>
     </div>
     <script>
+        window.onload = function(){
+            const isLogin = sessionStorage.getItem("isLogin");
+            if ( isLogin != true){
+                alert("ترا ماسكينك روح اعمل اكاونت");
+                window.location.href = "../Registration.html";
+            }
+        }
     if (!localStorage.getItem('quizAnswers')) {
         localStorage.setItem('quizAnswers', JSON.stringify([]));
     }

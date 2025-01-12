@@ -86,46 +86,40 @@
             </div>
         </div>
     </div>
-    <script>
-
+<script>
+        window.onload = function(){
+            const isLogin = sessionStorage.getItem("isLogin");
+            if ( isLogin != true){
+                alert("ترا ماسكينك روح اعمل اكاونت");
+                window.location.href = "../Registration.html";
+            }
+        }
         if (!localStorage.getItem('quizAnswers')) {
-     localStorage.setItem('quizAnswers', JSON.stringify([]));
- }
- 
-     
- function question(event, answer, isCorrect) {
-     const options = document.querySelectorAll('.option li');
-     
-     
-     options.forEach(option => {
-         option.classList.remove('selected');
-     });
-     event.target.classList.add('selected');
-     
-    
-     let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
-     sessionAnswers.push({ question: "2. What year was The Fellowship of the Ring film released?", answer, isCorrect });
-     sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
- 
-    
-     let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
-     localAnswers.push({ question: "What year was The Fellowship of the Ring film released?", answer, isCorrect });
-     localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
- 
-     console.log("SessionStorage:", JSON.parse(sessionStorage.getItem('answers')));
-     console.log("LocalStorage:", JSON.parse(localStorage.getItem('quizAnswers')));
- }
- 
-         function next() {
-             const selectedOption = document.querySelector('.selected');
-             
-             if (!selectedOption) {
-                 alert("Please choose an answer before moving to the next question.");
-                 return false;
-             }
-             
-             window.location.href = "quizone-3.html"; 
-         }
-     </script>
+        localStorage.setItem('quizAnswers', JSON.stringify([]));
+        }
+    function question(event, answer, isCorrect) {
+        const options = document.querySelectorAll('.option li');
+        options.forEach(option => {
+        option.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+    let sessionAnswers = JSON.parse(sessionStorage.getItem('answers')) || [];
+    sessionAnswers.push({ question: "2. What year was The Fellowship of the Ring film released?", answer, isCorrect });
+    sessionStorage.setItem('answers', JSON.stringify(sessionAnswers));
+    let localAnswers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
+    localAnswers.push({ question: "What year was The Fellowship of the Ring film released?", answer, isCorrect });
+    localStorage.setItem('quizAnswers', JSON.stringify(localAnswers));
+    console.log("SessionStorage:", JSON.parse(sessionStorage.getItem('answers')));
+    console.log("LocalStorage:", JSON.parse(localStorage.getItem('quizAnswers')));
+    }
+    function next() {
+    const selectedOption = document.querySelector('.selected');
+        if (!selectedOption) {
+            alert("Please choose an answer before moving to the next question.");
+            return false;
+            }
+            window.location.href = "quizone-3.html"; 
+        }
+</script>
 </body>
 </html>  
