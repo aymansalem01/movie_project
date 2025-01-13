@@ -124,14 +124,10 @@
                 container.appendChild(iframe);
             }
         }
-
-       
         window.onload = function () {
             addYouTubeVideo("videos1", videoIds[0]);
             addYouTubeVideo("videos2", videoIds[1]);
             addYouTubeVideo("videos3", videoIds[2]);
-
-          
             const userid = document.getElementById("user");
             const Signbtn = document.getElementById("Signbtn");
             const logbtn = document.getElementById("logbtn");
@@ -143,7 +139,6 @@
             const score1 = sessionStorage.getItem("score1") || "";
             const score2 = sessionStorage.getItem("score2") || "";
             const score3 = sessionStorage.getItem("score3") || "";
-
             if (isLogin && username != "") {
                 Signbtn.style.display = "none";
                 logbtn.style.display = "none";
@@ -160,7 +155,6 @@
                 quiz3.textContent = score3;
             }
         };
-
         function attempQuiz1() {
             const username = sessionStorage.getItem("name") || "";
             const isLogin = sessionStorage.getItem("isLogin");
@@ -168,10 +162,9 @@
                 localStorage.setItem("quizAnswers", []);
                 window.open("quiz1/quizone-1.html");
             } else {
-                alert("please create account or Login");
+                alert("بتخخوث ؟؟ بدك تفوت بدون اكاونت");
             }
         }
-
         function attempQuiz2() {
             const username = sessionStorage.getItem("name") || "";
             const isLogin = sessionStorage.getItem("isLogin");
@@ -179,10 +172,9 @@
                 localStorage.setItem("quizAnswers", []);
                 window.open("quiz2/quiztwo-1.html");
             } else {
-                alert("please create account or Login");
+                alert("بتخخوث ؟؟ بدك تفوت بدون اكاونت");
             }
         }
-
         function attempQuiz3() {
             const username = sessionStorage.getItem("name") || "";
             const isLogin = sessionStorage.getItem("isLogin");
@@ -190,7 +182,7 @@
                 localStorage.setItem("quizAnswers", []);
                 window.open("quiz3/quizthree-1.html");
             } else {
-                alert("please create account or Login");
+                alert("بتخخوث ؟؟ بدك تفوت بدون اكاونت");
             }
         }
 </script>

@@ -21,13 +21,14 @@
     }
     .btn{background:linear-gradient(to right,#9E2729,#581618) ; color: white;}
     .card{background-color:  white ; color: black;}
-    .cardpar{display: flex;}
+    .cardpar{display: flex; margin-bottom: 20px;}
+    .card >img {height: 300px;}
     .card > div {text-align: center;}
     #user{display: none;}
     @media only screen and (max-width: 900px){
         .cardpar{flex-wrap: wrap;gap: 10px; justify-content: center;}
+        .carousel-inner{max-height: 500px;}
     }
-
     h1 {
     text-align: center;
     margin-top: 20px;
@@ -44,14 +45,11 @@ h4 {
     max-width: 900px;
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-   
 }
 #emailsub::placeholder {
     color: white;
     opacity: 1; 
 }
-
-
 </style>
 </head>
 <body>
@@ -65,13 +63,13 @@ h4 {
             <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <button class="btn mx-5 " onclick="window.location = 'quiz.html'">Quizzes</button>
+                <button class="btn mx-4 " onclick="window.location = 'quiz.html'">Quizzes</button>
                 </li>
                 <li class="nav-item">
-                <button class="btn mx-5" onclick="window.location = 'reco.html'">Recommendations</button>
+                <button class="btn mx-4" onclick="window.location = 'reco.html'">Recommendations</button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn  px-5" type="button" ><a href="chatbot.html" style="text-decoration: none;color: white;">AI Chat</a></button>
+                    <button class="btn px-4  mx-4" type="button" ><a href="chatbot.html" style="text-decoration: none;color: white;">AI Chat</a></button>
                     </li>
             </ul>
             <div class="d-flex">
@@ -131,13 +129,14 @@ h4 {
             </div>
         </div>
     </div>
-
-    <h1>Welcome to Cima Nerds</h1>
-    <h4> Dive into the exciting world of cinema with our unique platform, where movies meet fun quizzes! Explore a treasure trove of film knowledge, from timeless classics to the latest blockbusters. Test your expertise with engaging quizzes that challenge your memory and love for movies.</h4>
-
+    <div style="margin-bottom: 25px;border-top: solid #010101; border-bottom: #010101 solid; padding: 10px;">
+        <h1>Welcome to <span style="color: #A0282A;">C</span>ima <span style="color: #A0282A;">N</span>erds</h1>
+        <h4> Dive into the exciting world of cinema with our unique platform, where movies meet fun quizzes! Explore a treasure trove of film knowledge, from timeless classics to the latest blockbusters. Test your expertise with engaging quizzes that challenge your memory and love for movies.</h4>
+    </div>
 
     <!------------------------end carosel ----------------------------------------------->
     <!----------------card about us ----------------------------------------------------->
+    <div  style="margin-bottom: 20px;"><h1>Your <span style="color: #A0282A;">F</span>avourite <span style="color: #A0282A;">N</span>erds </h1></div>
     <div class="cardpar">
         <div class="card mx-3" style="width:300px">
             <img class="card-img-top" src="img/mix/Mo.JPG" style="width:100%">
@@ -149,8 +148,8 @@ h4 {
         <div class="card mx-3" style="width:300px">
             <img class="card-img-top" src="img/mix/Ma.jpg" style="width:100%">
             <div class="card-body">
-                <h4 class="card-title">Majd alkseeh</h4>
-                <p class="card-text">  computer engineer</p>
+                <h4 class="card-title">Majd Alkaseeh</h4>
+                <p class="card-text"> BIT </p>
             </div>
         </div>
         <div class="card mx-3" style="width:300px">
@@ -163,28 +162,27 @@ h4 {
         <div class="card mx-3" style="width:300px">
             <img class="card-img-top" src="img/mix/Ra.jpg" style="width:100%">
             <div class="card-body">
-                <h4 class="card-title">Razan alabadi</h4>
-                <p class="card-text">  computer engineer</p>
+                <h4 class="card-title">Razan Al-Abbadi</h4>
+                <p class="card-text"> Applied English </p>
             </div>
         </div>
         <div class="card mx-3" style="width:300px">
             <img class="card-img-top" src="img/mix/ib.jpg" style="width:100%">
             <div class="card-body">
-                <h4 class="card-title">Ibrahem Qunibi</h4>
-                <p class="card-text">  computer engineer</p>
+                <h4 class="card-title">ibrahim quniebi</h4>
+                <p class="card-text"> AI</p>
             </div>
         </div>
     </div>
     <!---------------------------end card about us -------------------------------------->
     <!---------------------------footer-------------------->
-    <hr>
-    <div style="text-align: center;color: black;">
+    <div style="text-align: center;color: black; border-top: solid #A0282A; padding-top: 15px;">
         <h3 style="color: white;"> subscribe for news</h3>
-        <div style="padding-bottom: 20px; margin: 10px;">
+        <div style="padding-bottom: 5px; margin: 10px;">
             <input type="text" id="emailsub" class="btn" style="margin: 10px;" placeholder="enter you'r email">
             <button class="btn" onclick="subscrib()">subscribe</button>
         </div>
-
+        <button class="btn" style="margin-bottom: 20px;"><a href="rateweb.html" target="_blank" style="color: white;text-decoration: none; ">rating websit</a></button>
     </div>
     <!------------------------------end footer------------->
     <script>
