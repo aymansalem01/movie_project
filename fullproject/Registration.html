@@ -84,6 +84,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-image: url('img/home/login.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         .container {
             display: grid;
@@ -113,24 +116,16 @@
             <p id="passErr"></p>
             <input type="password" id="RegConfirmPassword" placeholder="Confirm Password" required>
             <p id="confirmErr"></p>
-            <input type="checkbox" id="check" required>
-            <label>I agree to the terms & conditions</label>
-            <button type="submit" onclick="signup()">Sign Up</button>
+            <div style="display: flex; "> 
+            <input type="checkbox" id="check" required style="width: 30%;">
+            <label style="width: 70%;">I agree to the terms & conditions</label>
+            </div>
+            <button type="submit" onclick="signup()" >Sign Up</button>
+            
         </form>
         <p>Already have an account? <a href="LogIn.html">Log In</a></p>
     </div>
     <div class="gallery-section">
-        <div class="container">
-            <div class="box1"><img src="hunter.jpg" ></div>
-            <div class="box2"><img src="hunter.jpg" ></div>
-            <div class="box3"><img src="hunter.jpg" ></div>
-            <div class="box4"><img src="hunter.jpg" ></div>
-            <div class="box5"><img src="hunter.jpg" ></div>
-            <div class="box6"><img src="hunter.jpg" ></div>
-            <div class="box7"><img src="hunter.jpg" ></div>
-            <div class="box8"><img src="hunter.jpg" ></div>
-            <div class="box9"><img src="hunter.jpg" ></div>
-        </div>
     </div>
 <script>
     function signup(){

@@ -22,7 +22,6 @@
             border: solid black 0.5px;
             width: 95%;
             padding: 10px;
-            max-height: 300px;
             text-align: center;
         }
         .video > h2 {
@@ -66,13 +65,11 @@
             </div>
         </div>
     </nav>
-
     <!-- Main Content -->
     <div style="color: black; text-align: center; padding-top: 10px;">
         <h1>Welcome to Movie Quiz</h1>
         <h2>Please watch the videos and attempt the quizzes</h2>
     </div>
-
     <!-- Video Sections -->
     <div style="justify-items: center; margin-top: 20px;">
         <div class="video">
@@ -98,7 +95,6 @@
         <p class="btn" style="margin: 10px;" id="quiz3">Your mark goes here</p>
         <button class="btn" style="margin: 10px;" onclick="attempQuiz3()">Attempt Quiz</button>
     </div>
-
 <script>
     const API_KEY = 'AIzaSyDD4DCmX3C_XI3E240uVFMEhe3VeQSX2fc'; 
     const TOPICS = [
@@ -106,15 +102,12 @@
         'The Lord of the Rings: Fellowship of the Ring Recap',
         'The Lord of the Rings: Return of the King Recap'
     ];
-
-   
     async function fetchSingleVideo(topic, containerId) {
         const API_URL = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${encodeURIComponent(topic)}&type=video&part=snippet&maxResults=1`;
         try {
             const response = await fetch(API_URL);
             const data = await response.json();
             const videoContainer = document.getElementById(containerId);
-
             if (data.items.length > 0) {
                 const videoId = data.items[0].id.videoId;
                 videoContainer.innerHTML = `
@@ -130,8 +123,6 @@
             console.error('Error fetching video:', error);
         }
     }
-
-   
     window.onload = function () {
         fetchSingleVideo(TOPICS[0], 'video1');
         fetchSingleVideo(TOPICS[1], 'video2');
