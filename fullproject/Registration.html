@@ -169,6 +169,14 @@
         usererr.textContent = "!يعني اسمك اقل من 3 احرف ؟"
         isvalid = false;
     }
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const emailExists = users.some(user => user.email === email.value);
+
+    if (emailExists) {
+        emailerr.textContent = "الإيميل مستخدمه يا حج. روح اعمل تسجيل الدخول.";
+        return;
+    }
+
     if(isvalid){
         let user = {email : email.value , password : pass.value , name : username.value};
         let users = JSON.parse(localStorage.getItem("users")) || [];
