@@ -31,13 +31,13 @@
     </style>
 </head>
 <body>
-    <script type="importmap">
+<script type="importmap">
         {
             "imports":{ 
                 "@google/generative-ai":"https://esm.run/@google/generative-ai"
             }
         }
-    </script>
+</script>
     <!---------------nav bar -------------------->
     <nav class="navbar navbar-expand-lg " style="background-color: #010101;">
         <div class="container-fluid">
@@ -77,7 +77,7 @@
         </button>
         </form>
         </div> 
-        <script type="module">
+<script type="module">
             import { GoogleGenerativeAI } from "@google/generative-ai";
             const genAI = new GoogleGenerativeAI("AIzaSyBhS0N62ZAT8XxPiQTRlGALThoVj3IGnAM");
             document.getElementById("sendchat").addEventListener("click",run)
@@ -117,45 +117,6 @@
                     pardiv.appendChild(anpar);
                     document.getElementById("chatin").value = "";
                 }
-        </script>
-<!-- <script>
-    const userid = document.getElementById("user");
-    const Signbtn = document.getElementById("Signbtn");
-    const logbtn = document.getElementById("logbtn");
-    const username = sessionStorage.getItem("name") || "";
-    window.onload = function(){
-        const isLogin = sessionStorage.getItem("isLogin");
-        if(isLogin && username!= ""){
-            Signbtn.style.display = "none";
-            logbtn.style.display = "none";
-            userid.style.display = "block";
-            userid.textContent =  "hi: " + username;
-        }
-    }
-    import { GoogleGenerativeAI } from "@google/generative-ai";
-
-    const genAI = new GoogleGenerativeAI("AIzaSyBhS0N62ZAT8XxPiQTRlGALThoVj3IGnAM");
-
-
-
-
-    function showchat(answer,question){
-    alert("aka");
-    const pardiv = document.getElementById("aichat");
-    const an = answer;
-    const qu = question;
-    const anpar = document.createElement("p");
-    const qupar = document.createElement("p");
-    qupar.style.backgroundColor = "white";
-    anpar.style.backgroundColor = "#9E2729";
-    anpar.style.textAlign = "end";
-    const nodean = document.createTextNode(an);
-    const nodequ = document.createTextNode(qu);
-    anpar.appendChild(nodean);
-    qupar.appendChild(nodequ);
-    pardiv.appendChild(anpar);
-    pardiv.appendChild(qupar);
-}
-</script> -->
+</script>
 </body>
 </html>
