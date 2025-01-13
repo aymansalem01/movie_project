@@ -22,6 +22,7 @@
             border: solid black 0.5px;
             width: 95%;
             padding: 10px;
+            max-height: 300px;
             text-align: center;
         }
         .video > h2 {
@@ -30,10 +31,16 @@
         #user {
             display: none;
         }
-        iframe {
-            width: 90%;
-            height: 300px;
-            border: none;
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .video-container iframe {
+            flex: 1 1 300px;
+            max-width: 300px;
+            height: 200px;
         }
     </style>
 </head>
@@ -65,69 +72,126 @@
             </div>
         </div>
     </nav>
+
     <!-- Main Content -->
     <div style="color: black; text-align: center; padding-top: 10px;">
         <h1>Welcome to Movie Quiz</h1>
-        <h2>Please watch the videos and attempt the quizzes</h2>
+        <h2>Please watch video and attempt quiz</h2>
     </div>
-    <!-- Video Sections -->
+
     <div style="justify-items: center; margin-top: 20px;">
         <div class="video">
-            <h2>Text for test 1</h2>
-            <div id="video1"></div>
+            <h2>Text for test</h2>
+            <div class="video-container" id="videos1"></div>
         </div>
         <p class="btn" style="margin: 10px;" id="quiz1">Your mark goes here</p>
         <button class="btn" style="margin: 10px;" onclick="attempQuiz1()">Attempt Quiz</button>
     </div>
     <div style="justify-items: center; margin-top: 20px;">
         <div class="video">
-            <h2>Text for test 2</h2>
-            <div id="video2"></div>
+            <h2>Text for test</h2>
+            <div class="video-container" id="videos2"></div>
         </div>
         <p class="btn" style="margin: 10px;" id="quiz2">Your mark goes here</p>
         <button class="btn" style="margin: 10px;" onclick="attempQuiz2()">Attempt Quiz</button>
     </div>
     <div style="justify-items: center; margin-top: 20px;">
         <div class="video">
-            <h2>Text for test 3</h2>
-            <div id="video3"></div>
+            <h2>Text for test</h2>
+            <div class="video-container" id="videos3"></div>
         </div>
         <p class="btn" style="margin: 10px;" id="quiz3">Your mark goes here</p>
         <button class="btn" style="margin: 10px;" onclick="attempQuiz3()">Attempt Quiz</button>
     </div>
+
 <script>
     const API_KEY = 'AIzaSyDD4DCmX3C_XI3E240uVFMEhe3VeQSX2fc'; 
-    const TOPICS = [
-        'The Lord of the Rings: Two Towers Recap',
-        'The Lord of the Rings: Fellowship of the Ring Recap',
-        'The Lord of the Rings: Return of the King Recap'
-    ];
-    async function fetchSingleVideo(topic, containerId) {
-        const API_URL = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${encodeURIComponent(topic)}&type=video&part=snippet&maxResults=1`;
-        try {
-            const response = await fetch(API_URL);
-            const data = await response.json();
-            const videoContainer = document.getElementById(containerId);
-            if (data.items.length > 0) {
-                const videoId = data.items[0].id.videoId;
-                videoContainer.innerHTML = `
-                    <iframe 
-                        src="https://www.youtube.com/embed/${videoId}" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>`;
-            } else {
-                videoContainer.innerHTML = '<p>Video not found</p>';
+    // const TOPICS = ['The Lord of the Rings: Return of the King in Minutes | Recap', 'The Lord of the Rings: Fellowship of the Ring in Minutes | Recap', 'The Lord of the Rings: Two Towers in Minutes | Recap']; 
+    const videoIds = ["s9fXMgwUOIw", "Kl7yVuLiADI", "7WwLwd63uU8"]; 
+
+     
+        function addYouTubeVideo(containerId, videoId) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                const iframe = document.createElement("iframe");
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                iframe.width = "560";
+                iframe.height = "315";
+                iframe.frameBorder = "0";
+                iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                iframe.allowFullscreen = true;
+                container.appendChild(iframe);
             }
-        } catch (error) {
-            console.error('Error fetching video:', error);
         }
-    }
-    window.onload = function () {
-        fetchSingleVideo(TOPICS[0], 'video1');
-        fetchSingleVideo(TOPICS[1], 'video2');
-        fetchSingleVideo(TOPICS[2], 'video3');
-    };
+
+       
+        window.onload = function () {
+            addYouTubeVideo("videos1", videoIds[0]);
+            addYouTubeVideo("videos2", videoIds[1]);
+            addYouTubeVideo("videos3", videoIds[2]);
+
+          
+            const userid = document.getElementById("user");
+            const Signbtn = document.getElementById("Signbtn");
+            const logbtn = document.getElementById("logbtn");
+            const username = sessionStorage.getItem("name") || "";
+            const isLogin = sessionStorage.getItem("isLogin");
+            const quiz1 = document.getElementById("quiz1");
+            const quiz2 = document.getElementById("quiz2");
+            const quiz3 = document.getElementById("quiz3");
+            const score1 = sessionStorage.getItem("score1") || "";
+            const score2 = sessionStorage.getItem("score2") || "";
+            const score3 = sessionStorage.getItem("score3") || "";
+
+            if (isLogin && username != "") {
+                Signbtn.style.display = "none";
+                logbtn.style.display = "none";
+                userid.style.display = "block";
+                userid.textContent = "hi: " + username;
+            }
+            if (score1 != "") {
+                quiz1.textContent = score1;
+            }
+            if (score2 != "") {
+                quiz2.textContent = score2;
+            }
+            if (score3 != "") {
+                quiz3.textContent = score3;
+            }
+        };
+
+        function attempQuiz1() {
+            const username = sessionStorage.getItem("name") || "";
+            const isLogin = sessionStorage.getItem("isLogin");
+            if (isLogin && username != "") {
+                localStorage.setItem("quizAnswers", []);
+                window.open("quiz1/quizone-1.html");
+            } else {
+                alert("please create account or Login");
+            }
+        }
+
+        function attempQuiz2() {
+            const username = sessionStorage.getItem("name") || "";
+            const isLogin = sessionStorage.getItem("isLogin");
+            if (isLogin && username != "") {
+                localStorage.setItem("quizAnswers", []);
+                window.open("quiz2/quiztwo-1.html");
+            } else {
+                alert("please create account or Login");
+            }
+        }
+
+        function attempQuiz3() {
+            const username = sessionStorage.getItem("name") || "";
+            const isLogin = sessionStorage.getItem("isLogin");
+            if (isLogin && username != "") {
+                localStorage.setItem("quizAnswers", []);
+                window.open("quiz3/quizthree-1.html");
+            } else {
+                alert("please create account or Login");
+            }
+        }
 </script>
 </body>
 </html>
