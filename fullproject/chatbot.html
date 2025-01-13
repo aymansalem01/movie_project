@@ -19,6 +19,15 @@
         .custom-shadow:hover{
             box-shadow: 0 0 20px red;
         }
+        #aichat{
+            width: 70%;
+            margin-top: 40px;
+        }
+        #aichat > *{
+            margin: 20px;
+            padding: 15px;
+            width: 50%;
+        }
     </style>
 </head>
 <body>
@@ -63,50 +72,50 @@
     </div>
     <div class="container-fluid" style="position: absolute; bottom: 20px; justify-items: center;">
         <form class="d-flex" role="send">
-        <input class="form-control me-2 custom-shadow w-5" type="text" placeholder="As AI about your movie " aria-label="text" id="chatin"  style="width: 90%;" value="hello">
-        <button type="button" class="btn btn-danger" onclick="run()" style="color: white;">Ask me ya habibi
+        <input class="form-control me-2 custom-shadow w-5" type="text" placeholder="As AI about your movie " aria-label="text" id="chatin"  style="width: 90%;">
+        <button type="button" class="btn btn-danger" id="sendchat" style="color: white;">Ask me ya habibi
         </button>
         </form>
         </div> 
-        
         <script type="module">
             import { GoogleGenerativeAI } from "@google/generative-ai";
             const genAI = new GoogleGenerativeAI("AIzaSyBhS0N62ZAT8XxPiQTRlGALThoVj3IGnAM");
-            run()
+            document.getElementById("sendchat").addEventListener("click",run)
             async function run(){
-                const input = document.getElementById("chatin").value;
+                const input = document.getElementById("chatin");
                 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-                if(input != ""){
-                    const prompt = "" + input;
+                if(input.value != ""){
+                    const prompt = "" + input.value;
                     const result = await model.generateContent(prompt);
                 const response = await result.response.text();
                 console.log(response);
-                document.getElementById("chatin").value = "";
-                showchat(response,input);
+                showchat(response);
                 }
                 else{
                     alert("اكتبلك اشي تسال عنو قبل ما تكبس");
                 }
                 }
-                function showchat(answer,question){
-                    alert("aka");
+                function showchat(answer){
+                    const question = document.getElementById("chatin").value
                     const pardiv = document.getElementById("aichat");
                     const an = "chat message : " + answer;
                     const qu ="you : " + question;
                     const anpar = document.createElement("p");
                     const qupar = document.createElement("span");
                     qupar.style.backgroundColor = "white";
+                    qupar.style.border = "solid balck"
                     qupar.style.color = "black"
                     qupar.style.textAlign = "start";
                     anpar.style.color = "white"
-                    anpar.style.backgroundColor = "balck"
+                    anpar.style.backgroundColor = "gray";
+                    anpar.style.border = "solid red .1px"
                     const nodean = document.createTextNode(an);
                     const nodequ = document.createTextNode(qu);
                     anpar.appendChild(nodean);
                     qupar.appendChild(nodequ);
                     pardiv.appendChild(qupar);
                     pardiv.appendChild(anpar);
-                    
+                    document.getElementById("chatin").value = "";
                 }
         </script>
 <!-- <script>
