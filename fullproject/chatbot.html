@@ -85,7 +85,7 @@
                 const input = document.getElementById("chatin");
                 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
                 if(input.value != ""){
-                    const prompt = "" + input.value;
+                    const prompt = "answer in 2 line max if the user ask about somthing that's not related to movies or tv shows answer it -> (موقع افلام ترا شوفلك موقع ثاني) " + input.value;
                     const result = await model.generateContent(prompt);
                 const response = await result.response.text();
                 console.log(response);
