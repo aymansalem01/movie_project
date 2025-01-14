@@ -33,15 +33,29 @@
             <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <button class="btn mx-5 " onclick="window.location = 'index.html'">Home</button>
+                <button class="btn mx-4 "><a href="quiz.html"style="text-decoration: none;color: white;">Quizzes</a></button>
                 </li>
                 <li class="nav-item">
-                <button class="btn mx-5" onclick="window.location = 'quiz.html'">Quizzes</button>
+                <button class="btn mx-4" ><a href="reco.html" style="text-decoration: none;color: white;">Recommendations </a></button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn mx-5" onclick="window.location = 'reco.html'">Recommendations</button>
+                    <button class="btn px-4  mx-4" type="button" ><a href="chatbot.html" style="text-decoration: none;color: white;">AI Chat</a></button>
                     </li>
             </ul>
+            <div class="d-flex">
+                <button class="btn  mx-3 px-5" type="button" id="logbtn" ><a href="LogIn.html" style="text-decoration: none;color: white;">Log in</a></button> 
+                <!-------id for button-->
+                <button class="btn  px-5" type="button" id="Signbtn"><a href="Registration.html" style="text-decoration: none;color: white;">Sign in</a></button>
+                
+                <!-------id for button-->
+                <div class="dropdown">
+                    <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" id="user">
+                    </button>
+                    <ul class="dropdown-menu btn" >
+                    <li><button class="dropdown-item btn" style="color: white;" onclick="logout()">Logout</button></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         </div>
     </nav>
