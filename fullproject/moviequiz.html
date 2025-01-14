@@ -15,8 +15,8 @@
             background-color: #010101;
         }
         .btn {
-            background: linear-gradient(to right, #9E2729, #581618);
-            color: white;
+background-color: #010101;          
+  color: white;
             font-weight: bold;
         }
         .video {
@@ -40,8 +40,11 @@
         }
         .video-container iframe {
             flex: 1 1 300px;
-            max-width: 300px;
+            max-width: 1000px;
             height: 200px;
+        }
+        .btnn{
+            display: none;
         }
     </style>
 </head>
@@ -56,7 +59,7 @@
             <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <button class="btn mx-4 "><a href="quiz.html"style="text-decoration: none;color: white;">Quizzes</a></button>
+                <button class="btn mx-4 "><a href="quiz.html"style="text-decoration: none;color: white;">Home</a></button>
                 </li>
                 <li class="nav-item">
                 <button class="btn mx-4" ><a href="reco.html" style="text-decoration: none;color: white;">Recommendations </a></button>
@@ -66,16 +69,18 @@
                     </li>
             </ul>
             <div class="d-flex">
-                <button class="btn  mx-3 px-5" type="button" id="logbtn" ><a href="LogIn.html" style="text-decoration: none;color: white;">Log in</a></button> 
+                <button class="btn  mx-3 px-5" type="button" id="logbtn" style="background: linear-gradient(to right, #9E2729, #581618);
+" ><a href="LogIn.html" style="text-decoration: none;color: white;">Log in</a></button> 
                 <!-------id for button-->
-                <button class="btn  px-5" type="button" id="Signbtn"><a href="Registration.html" style="text-decoration: none;color: white;">Sign in</a></button>
+                <button class="btn  px-5" type="button" id="Signbtn" style="            background: linear-gradient(to right, #9E2729, #581618);"><a href="Registration.html" style="text-decoration: none;color: white;">Sign in</a></button>
                 
                 <!-------id for button-->
                 <div class="dropdown">
                     <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" id="user">
                     </button>
                     <ul class="dropdown-menu btn" >
-                    <li><button class="dropdown-item btn" style="color: white;" onclick="logout()">Logout</button></li>
+                    <li><button class="dropdown-item btn" style="color: white;background: linear-gradient(to right, #9E2729, #581618);
+" onclick="logout()">Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -94,24 +99,24 @@
             <h2>The Lord of the Rings: The Fellowship of the Ring Recap</h2>
             <div class="video-container" id="videos1"></div>
         </div>
-        <p class="btn" style="margin: 10px;" id="quiz1">Your mark goes here</p>
-        <button class="btn" style="margin: 10px;" onclick="attempQuiz1()">Attempt Quiz</button>
+        <p class="btnn" style="margin: 10px;" id="quiz1">Your mark goes here</p>
+        <button class="btn" style="margin: 10px;background: linear-gradient(to right, #9E2729, #581618)" onclick="attempQuiz1()">Attempt Quiz</button>
     </div>
     <div style="justify-items: center; margin-top: 20px;">
         <div class="video">
             <h2>The Lord of the Rings: The Return of the King Recap</h2>
             <div class="video-container" id="videos2"></div>
         </div>
-        <p class="btn" style="margin: 10px;" id="quiz2">Your mark goes here</p>
-        <button class="btn" style="margin: 10px;" onclick="attempQuiz2()">Attempt Quiz</button>
+        <p class="btnn" style="margin: 10px;" id="quiz2">Your mark goes here</p>
+        <button class="btn" style="margin: 10px;background: linear-gradient(to right, #9E2729, #581618)" onclick="attempQuiz2()">Attempt Quiz</button>
     </div>
     <div style="justify-items: center; margin-top: 20px;">
         <div class="video">
             <h2>The Lord of the Rings: The Two Towers Recap</h2>
             <div class="video-container" id="videos3"></div>
         </div>
-        <p class="btn" style="margin: 10px;" id="quiz3">Your mark goes here</p>
-        <button class="btn" style="margin: 10px;" onclick="attempQuiz3()">Attempt Quiz</button>
+        <p class="btnn" style="margin: 10px;" id="quiz3">Your mark goes here</p>
+        <button class="btn" style="margin: 10px;background: linear-gradient(to right, #9E2729, #581618)" onclick="attempQuiz3()">Attempt Quiz</button>
     </div>
 
 <script>
@@ -156,12 +161,19 @@
             }
             if (score1 != "") {
                 quiz1.textContent = score1;
+                quiz1.style.display ="block"
+
+
             }
             if (score2 != "") {
                 quiz2.textContent = score2;
+                quiz2.style.display ="block"
+
             }
             if (score3 != "") {
                 quiz3.textContent = score3;
+                quiz3.style.display ="block"
+
             }
         };
         function attempQuiz1() {
@@ -194,6 +206,7 @@
                 alert("بتخخوث ؟؟ بدك تفوت بدون اكاونت");
             }
         }
+      
 </script>
 </body>
 </html>
