@@ -17,7 +17,7 @@
         body{
             min-height: 100vh;
             margin: 0; 
-            background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
+            background-color: black;
         }
         .options{
             max-width: 35rem;
@@ -64,6 +64,9 @@
         .option:hover {
             background-color: #290608;
         }
+        h1{
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -74,7 +77,7 @@
 
         <div class="Question">
             <div class="dropdown">
-                <div class="options" id="select"> <label style="font-size: 1.5rem;">2.In what state does Sam find Frodo after Shelob’s attack?</label><br><br>
+                <div class="options" id="select"> <label style="font-size: 1.5rem; color: white;">2.In what state does Sam find Frodo after Shelob’s attack?</label><br><br>
                     <div class="option" ><a href="javascript:void(0)" onclick="question(event,'Dead',false)"><li id="wrong">Dead</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0)" onclick="question(event,'Unharmed, but terrified',false)"><li id="wrong" >Unharmed, but terrified
                     </li></a></div><br><br>
@@ -103,7 +106,7 @@ var downloadTimer = setInterval(function(){
        window.onload = function(){
            const isLogin = sessionStorage.getItem("isLogin");
            if ( isLogin != "true"){
-               alert("ترا ماسكينك روح اعمل اكاونت");
+               alert("you don't have account kindly login first");
                window.location.href = "../Registration.html";
            }
        }

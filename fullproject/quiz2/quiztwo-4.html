@@ -17,7 +17,10 @@
         body{
             min-height: 100vh;
             margin: 0; 
-            background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
+            background-color: black;
+        }
+        h1{
+            color: white;
         }
         .options{
             max-width: 35rem;
@@ -73,7 +76,7 @@
         <progress value="0" max="10" id="progressBar"></progress>
         <div class="Question">
             <div class="dropdown">
-                <div class="options" id="select"> <label style="font-size: 1.5rem;">4.How does Saruman die?
+                <div class="options" id="select"> <label style="font-size: 1.5rem; color: white;">4.How does Saruman die?
                 </label><br><br>
                     <div class="option" ><a href="javascript:void(0)"  onclick="question(event,'Several Hobbits shoot him with arrows',false)"><li id="wrong">Several Hobbits shoot him with arrows</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0)"  onclick="question(event,'His servant, Wormtongue, kills him',true)"><li id="right" >His servant, Wormtongue, kills him</li></a></div><br><br>
@@ -104,7 +107,7 @@ var downloadTimer = setInterval(function(){
         window.onload = function(){
             const isLogin = sessionStorage.getItem("isLogin");
             if ( isLogin != "true"){
-                alert(" بالله عليك مش لو عملت حساب اسهل؟");
+                alert("you don't have account kindly login first" );
                 window.location.href = "../Registration.html";
             }
         }

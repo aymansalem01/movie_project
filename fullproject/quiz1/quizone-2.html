@@ -16,7 +16,10 @@
         body{
             min-height: 100vh;
             margin: 0; 
-            background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
+            background-color: black;
+        }
+        h1{
+            color: white;
         }
         .options{
             max-width: 35rem;
@@ -72,7 +75,7 @@
         <progress value="0" max="10" id="progressBar"></progress>
         <div class="Question">
             <div class="dropdown">
-                <div class="options" id="select"> <label style="font-size: 1.5rem;">2.What year was The Fellowship of the Ring film released?</label><br><br>
+                <div class="options" id="select"> <label style="font-size: 1.5rem; color: white;">2.What year was The Fellowship of the Ring film released?</label><br><br>
                     <div class="option" ><a href="javascript:void(0);" onclick="question(event, '2001', true)"><li  id="right">2001</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0);" onclick="question(event, '1998', false)"> <li id="wrong">1998</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0);" onclick="question(event, '2004', false)"><li id="wrong">2004</li></a></div><br><br>

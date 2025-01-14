@@ -6,22 +6,25 @@
     <title>Quiz Results</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C, #481A1C, #3A1817, #341817, #241415, #241415, #010101, #010101);
-            color: white;
+            background-color: black;
             font-family: Arial, sans-serif;
             min-height: 100vh;
         }
+       
         .result-container {
             text-align: center;
             margin-top: 100px;
+            color: white;
         }
         .score {
             font-size: 2rem;
             font-weight: bold;
+            color: white;
         }
         .message {
             font-size: 1.5rem;
             margin-top: 20px;
+            color: white;
         }
         .restart-btn {
             background: linear-gradient(to right, #9E2729, #581618);
@@ -107,7 +110,7 @@ li{
     const answers = JSON.parse(localStorage.getItem('quizAnswers')) || [];
 
     if (answers.length === 0) {
-        alert("No answers found in localStorage!");
+        alert("No answers found !");
         return;
     }
 

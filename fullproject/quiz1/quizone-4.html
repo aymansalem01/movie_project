@@ -16,7 +16,10 @@
         body{
             min-height: 100vh;
             margin: 0; 
-            background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
+            background-color: black;
+        }
+        h1{
+            color: white;
         }
         .options{
             max-width: 35rem;
@@ -73,7 +76,7 @@
 
         <div class="Question">
             <div class="dropdown">
-                <div class="options" id="select"> <label style="font-size: 1.5rem;">4.How many Black Riders are there? </label><br><br>
+                <div class="options" id="select"> <label style="font-size: 1.5rem; color: white;">4.How many Black Riders are there? </label><br><br>
                     <div class="option" ><a href="javascript:void(0);" onclick="question(event,'Five',false)"><li id="wrong"> Five</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0);" onclick="question(event,'Three', false)"><li id="wrong">Three</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0);" onclick="question(event,'Nine', true)"><li id="right">Nine</li></a></div><br><br>

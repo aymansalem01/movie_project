@@ -16,7 +16,10 @@
         body{
             min-height: 100vh;
             margin: 0; 
-            background: linear-gradient(to bottom, #A0282A, #7E2424, #7E2424, #7E2424, #581C1C,   #481A1C, #3A1817,#341817,#241415,#241415,#010101,#010101);
+            background-color: black;
+        }
+        color{
+            color: white;
         }
         .options{
             max-width: 35rem;
@@ -72,7 +75,7 @@
         <progress value="0" max="10" id="progressBar"></progress>
         <div class="Question">
             <div class="dropdown">
-                <div class="options" id="select"> <label style="font-size: 1.5rem;">3.What gift does Galadriel give Frodo in Lothlórien?</label><br><br>
+                <div class="options" id="select"> <label style="font-size: 1.5rem; color: white;">3.What gift does Galadriel give Frodo in Lothlórien?</label><br><br>
                     <div class="option" ><a href="javascript:void(0);"  onclick="question(event,' A sword', true)"><li id="right"> A sword</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0);"  onclick="question(event, 'A light vial', false)"><li id="wrong" >A light vial</li></a></div><br><br>
                     <div class="option" ><a href="javascript:void(0);"  onclick="question(event, 'A ring', false)"><li id="wrong">A ring</li></a></div><br><br>
