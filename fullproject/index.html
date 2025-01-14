@@ -8,6 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>Home page</title>
 <style>
+    
     body{
         background-color: #010101;
         }
@@ -19,7 +20,7 @@
         height: 100%; 
         max-height: 500px;
     }
-    .btn{background-color: #010101; color: white;}
+    .btn{background-color: #010101; color: white;border-radius: 40px;}
     .card{background-color:  white ; color: black;}
     .cardpar{display: flex; margin-bottom: 20px;}
     .card >img {height: 300px;}
@@ -50,6 +51,7 @@ h4 {
     color: white;
     opacity: 1; 
 }
+.rad{border-radius: 40px;}
 </style>
 </head>
 <body>
@@ -179,10 +181,10 @@ h4 {
     <div style="text-align: center;color: black; border-top: solid #A0282A; padding-top: 15px;">
         <h3 style="color: white;"> subscribe for news</h3>
         <div style="padding-bottom: 5px; margin: 10px;">
-            <input type="text" id="emailsub" class="btn" style="margin: 10px;" placeholder="enter you'r email">
-            <button class="btn" onclick="subscrib()">subscribe</button>
+            <input type="text" id="emailsub"  style="margin: 10px;" placeholder="enter you'r email">
+            <button class="btn rad" onclick="subscrib()" style="background:linear-gradient(to right,#9E2729,#581618)">subscribe</button>
         </div>
-        <button class="btn" style="margin-bottom: 20px;"><a href="rateweb.html" target="_blank" style="color: white;text-decoration: none; ">rating websit</a></button>
+        <button class="btn rad" style="margin-bottom: 20px;background:linear-gradient(to right,#9E2729,#581618)"><a href="rateweb.html" target="_blank" style="color: white;text-decoration: none; ">rating websit</a></button>
     </div>
     <!------------------------------end footer------------->
     <script>
