@@ -17,7 +17,7 @@
         .card{background-color: white ; color: black;}
         .cardpar{display: flex; justify-content: space-around; flex-wrap: wrap;gap: 40px;}
         .card > div {text-align: center;}
-        .btn{background:linear-gradient(to right,#9E2729,#581618) ; color: white;}
+        .btn{background-color: #010101 ; color: white;}
         #user{display: none;}
         img{height: 200px;}
     </style>
@@ -43,16 +43,16 @@
                     </li>
             </ul>
             <div class="d-flex">
-                <button class="btn  mx-3 px-5" type="button" id="logbtn" ><a href="LogIn.html" style="text-decoration: none;color: white;">Log in</a></button> 
+                <button class="btn  mx-3 px-5" type="button" id="logbtn" style="background:linear-gradient(to right,#9E2729,#581618)" ><a href="LogIn.html" style="text-decoration: none;color: white;">Log in</a></button> 
                 <!-------id for button-->
-                <button class="btn  px-5" type="button" id="Signbtn"><a href="Registration.html" style="text-decoration: none;color: white;">Sign in</a></button>
+                <button class="btn  px-5" type="button" id="Signbtn" style="background:linear-gradient(to right,#9E2729,#581618)"><a href="Registration.html" style="text-decoration: none;color: white;">Sign in</a></button>
                 
                 <!-------id for button-->
                 <div class="dropdown">
                     <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" id="user">
                     </button>
                     <ul class="dropdown-menu btn" >
-                    <li><button class="dropdown-item btn" style="color: white;" onclick="logout()">Logout</button></li>
+                    <li ><button class="dropdown-item btn" style="color: white; background:linear-gradient(to right,#9E2729,#581618)" onclick="logout()">Logout</button></li>
                     </ul>
                 </div>
             </div>

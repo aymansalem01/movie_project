@@ -43,9 +43,24 @@ background-color: #010101;
             max-width: 1000px;
             height: 200px;
         }
-        .btnn{
+        .btnn1 {
             display: none;
+            border: #A0282A solid;
+            background-color: white;
+            padding: 10px;
         }
+        .btnn3{
+            display: none;
+            border: #A0282A solid;
+            background-color: white;
+            padding: 10px;
+        }
+        /* .btnn2{
+            display: none;
+            border: #A0282A solid;
+            background-color: white;
+            padding: 10px;
+        } */
     </style>
 </head>
 <body>
@@ -59,7 +74,7 @@ background-color: #010101;
             <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <button class="btn mx-4 "><a href="quiz.html"style="text-decoration: none;color: white;">Home</a></button>
+                <button class="btn mx-4 "><a href="index.html"style="text-decoration: none;color: white ;">Home</a></button>
                 </li>
                 <li class="nav-item">
                 <button class="btn mx-4" ><a href="reco.html" style="text-decoration: none;color: white;">Recommendations </a></button>
@@ -99,7 +114,7 @@ background-color: #010101;
             <h2>The Lord of the Rings: The Fellowship of the Ring Recap</h2>
             <div class="video-container" id="videos1"></div>
         </div>
-        <p class="btnn" style="margin: 10px;" id="quiz1">Your mark goes here</p>
+        <p class="btnn1" style="margin: 10px;" id="quiz1">Your mark goes here</p>
         <button class="btn" style="margin: 10px;background: linear-gradient(to right, #9E2729, #581618)" onclick="attempQuiz1()">Attempt Quiz</button>
     </div>
     <div style="justify-items: center; margin-top: 20px;">
@@ -107,7 +122,7 @@ background-color: #010101;
             <h2>The Lord of the Rings: The Return of the King Recap</h2>
             <div class="video-container" id="videos2"></div>
         </div>
-        <p class="btnn" style="margin: 10px;" id="quiz2">Your mark goes here</p>
+        <p class="btnn1" style="margin: 10px;" id="quiz2">Your mark goes here</p>
         <button class="btn" style="margin: 10px;background: linear-gradient(to right, #9E2729, #581618)" onclick="attempQuiz2()">Attempt Quiz</button>
     </div>
     <div style="justify-items: center; margin-top: 20px;">
@@ -115,7 +130,7 @@ background-color: #010101;
             <h2>The Lord of the Rings: The Two Towers Recap</h2>
             <div class="video-container" id="videos3"></div>
         </div>
-        <p class="btnn" style="margin: 10px;" id="quiz3">Your mark goes here</p>
+        <p class="btnn1" style="margin: 10px;" id="quiz3">Your mark goes here</p>
         <button class="btn" style="margin: 10px;background: linear-gradient(to right, #9E2729, #581618)" onclick="attempQuiz3()">Attempt Quiz</button>
     </div>
 
@@ -150,28 +165,27 @@ background-color: #010101;
             const quiz1 = document.getElementById("quiz1");
             const quiz2 = document.getElementById("quiz2");
             const quiz3 = document.getElementById("quiz3");
-            const score1 = sessionStorage.getItem("score1") || "";
-            const score2 = sessionStorage.getItem("score2") || "";
-            const score3 = sessionStorage.getItem("score3") || "";
+            const score1 = localStorage.getItem("score1") || "";
+            const score2 = localStorage.getItem("score2") || "";
+            const score3 = localStorage.getItem("score3") || "";
             if (isLogin && username != "") {
                 Signbtn.style.display = "none";
                 logbtn.style.display = "none";
                 userid.style.display = "block";
                 userid.textContent = "hi: " + username;
+                userid.style.background="linear-gradient(to right, #9E2729, #581618";
             }
-            if (score1 != "") {
-                quiz1.textContent = score1;
+            if (score1 !== "" && isLogin) {
+                quiz1.textContent = "Your score is: "+ score1 + "/5";
                 quiz1.style.display ="block"
-
-
             }
-            if (score2 != "") {
-                quiz2.textContent = score2;
+            if (score2 !== "" && isLogin) {
+                quiz2.textContent = "Your score is: "+ score2 + "/5";
                 quiz2.style.display ="block"
 
             }
-            if (score3 != "") {
-                quiz3.textContent = score3;
+            if (score3 !== "" && isLogin) {
+                quiz3.textContent = "Your score is: "+ score3 + "/5";
                 quiz3.style.display ="block"
 
             }

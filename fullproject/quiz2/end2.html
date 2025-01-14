@@ -80,7 +80,7 @@ li{
                 const answers = JSON.parse(sessionStorage.getItem('answers')) || [];
                 
                 const score2 = answers.filter(answer => answer.isCorrect).length;
-                sessionStorage.setItem('score2', score2);
+                localStorage.setItem('score2', score2);
                 
                 const totalQuestions = 5;
                 const happy = document.querySelector(".happy");
