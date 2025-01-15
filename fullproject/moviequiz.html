@@ -129,28 +129,54 @@ background-color: #010101;
     </div>
 
 <script>
-    const API_KEY = 'AIzaSyDD4DCmX3C_XI3E240uVFMEhe3VeQSX2fc'; 
-    // const TOPICS = ['The Lord of the Rings: Return of the King in Minutes | Recap', 'The Lord of the Rings: Fellowship of the Ring in Minutes | Recap', 'The Lord of the Rings: Two Towers in Minutes | Recap']; 
+    
+    const API_KEY = 'AIzaSyDD4DCmX3C_XI3E240uVFMEhe3VeQSX2fc';
     const videoIds = ["s9fXMgwUOIw", "Kl7yVuLiADI", "7WwLwd63uU8"]; 
 
-     
-        function addYouTubeVideo(containerId, videoId) {
-            const container = document.getElementById(containerId);
-            if (container) {
-                const iframe = document.createElement("iframe");
-                iframe.src = `https://www.youtube.com/embed/${videoId}`;
-                iframe.width = "560";
-                iframe.height = "315";
-                iframe.frameBorder = "0";
-                iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-                iframe.allowFullscreen = true;
-                container.appendChild(iframe);
+    
+    async function fetchVideoDetails(videoId) {
+        const url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${API_KEY}&part=snippet`;
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            if (data.items && data.items.length > 0) {
+                return data.items[0].snippet; 
+            } else {
+                console.error(`No details found for video ID: ${videoId}`);
+                return null;
             }
+        } catch (error) {
+            console.error(`Error fetching video details: ${error}`);
+            return null;
         }
-        window.onload = function () {
-            addYouTubeVideo("videos1", videoIds[0]);
-            addYouTubeVideo("videos2", videoIds[1]);
-            addYouTubeVideo("videos3", videoIds[2]);
+    }
+
+   
+    function createVideoIframe(videoId) {
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+        iframe.width = "560";
+        iframe.height = "315";
+        iframe.frameBorder = "0";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        return iframe;
+    }
+
+    
+    async function addVideosToPage(containerId, videoId) {
+        const container = document.getElementById(containerId);
+        const details = await fetchVideoDetails(videoId);
+        if (details && container) {
+            const iframe = createVideoIframe(videoId);
+            container.appendChild(iframe);
+        }
+    }
+
+    window.onload = function () {
+        addVideosToPage("videos1", videoIds[0]);
+        addVideosToPage("videos2", videoIds[1]);
+        addVideosToPage("videos3", videoIds[2]);
             const userid = document.getElementById("user");
             const Signbtn = document.getElementById("Signbtn");
             const logbtn = document.getElementById("logbtn");
