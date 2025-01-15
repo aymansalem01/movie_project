@@ -85,8 +85,8 @@ h4 {
                 <div class="dropdown">
                     <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" id="user">
                     </button>
-                    <ul class="dropdown-menu btn" >
-                    <li><button class="dropdown-item btn" style="color: white;" onclick="logout()">Logout</button></li>
+                    <ul class="dropdown-menu btn" style="background:linear-gradient(to right,#9E2729,#581618)">
+                    <li><button class="dropdown-item btn" style="color: white; background:linear-gradient(to right,#9E2729,#581618)" onclick="logout()">Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -183,7 +183,7 @@ h4 {
     <div style="text-align: center;color: black; border-top: solid #A0282A; padding-top: 15px;">
         <h3 style="color: white;"> subscribe for news</h3>
         <div style="padding-bottom: 5px; margin: 10px;">
-            <input type="text" id="emailsub"  style="margin: 10px;" placeholder="enter you'r email.....">
+            <input type="text" id="emailsub"  style="margin: 10px;" placeholder="Enter your email.....">
             <button class="btn rad" onclick="subscrib()" style="background:linear-gradient(to right,#9E2729,#581618)">subscribe</button>
         </div>
         <button class="btn rad" style="margin-bottom: 20px;background:linear-gradient(to right,#9E2729,#581618)"><a href="rateweb.html" target="_blank" style="color: white;text-decoration: none; ">rating websit</a></button>
@@ -201,6 +201,7 @@ h4 {
                 logbtn.style.display = "none";
                 userid.style.display = "block";
                 userid.textContent =  "hi: " + username;
+                userid.style.background ="linear-gradient(to right,#9E2729,#581618)"
             }
         }
         function logout(){
