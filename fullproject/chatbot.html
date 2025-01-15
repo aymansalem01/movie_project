@@ -100,21 +100,22 @@
                 const input = document.getElementById("chatin");
                 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
                 if(input.value != ""){
-                    const prompt = "answer in 2 line max shoild be only related to movies,anime,tv shows if the user ask about somthing that's not related to movies or tv shows answer it -> (موقع افلام ترا شوفلك موقع ثاني) " + input.value;
+                    const prompt = "answer in 2 line max should be only related to  all kinds of movies,tv shows and anime when i put the name or ask about it if else write(I only answer questions that's releated to movies..etc) " + input.value;
                     const result = await model.generateContent(prompt);
                 const response = await result.response.text();
                 console.log(response);
                 showchat(response);
                 }
-                else{
-                    alert("اكتبلك اشي تسال عنو قبل ما تكبس");
+                else if(input.value == ""){
+                    const response = "There's no question to answer kindly write anything that's releated to movies..etc";
+                    showchat(response);
                 }
                 }
                 function showchat(answer){
                     const question = document.getElementById("chatin").value
                     const pardiv = document.getElementById("aichat");
                     const an = "chat message : " + answer;
-                    const qu ="you : " + question;
+                    const qu ="your message : " + question;
                     const anpar = document.createElement("p");
                     const qupar = document.createElement("span");
                     qupar.style.backgroundColor = "white";
